@@ -112,15 +112,16 @@
     .ip-stat .k { font-size: .64rem; color: var(--muted); }
     .ip-stat .v { font-size: .68rem; font-weight: 700; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-    /* ── STATS (3 boxes) ── */
+    /* ── STATS (4 boxes) ── */
     .stats-section { background: var(--card); padding: 60px 120px; }
-    .stats-grid { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
-    .stat-box { padding: 44px 40px; border-right: 1px solid var(--border); background: linear-gradient(160deg, var(--card), var(--raised)); position: relative; overflow: hidden; }
+    .stats-grid { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+    .stat-box { padding: 44px 36px; border-right: 1px solid var(--border); background: linear-gradient(160deg, var(--card), var(--raised)); position: relative; overflow: hidden; }
     .stat-box:last-child { border-right: none; }
     .stat-box::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--grad); }
     .stat-ico { margin-bottom: 16px; }
-    .stat-n { font-family: 'Space Grotesk',sans-serif; font-size: 3.2rem; font-weight: 800; line-height: 1; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
-    .stat-l { color: var(--muted); font-size: .83rem; line-height: 1.5; }
+    .stat-n { font-family: 'Space Grotesk',sans-serif; font-size: 2.8rem; font-weight: 800; line-height: 1; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
+    .stat-l { color: var(--white); font-size: .83rem; line-height: 1.5; font-weight: 600; }
+    .stat-sub { color: var(--dim); font-size: .74rem; line-height: 1.5; margin-top: 6px; }
 
     .wrap { max-width: 1160px; margin: 0 auto; padding: 0 120px; }
     .eyebrow { font-size: .68rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 14px; }
@@ -145,7 +146,7 @@
     .vdt-quote em { font-style: normal; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; }
 
     /* Vision cards — clean, no photo bg */
-    .vision-cards { max-width: 1160px; margin: 0 auto; padding: 0 120px 120px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .vision-cards { max-width: 1160px; margin: 0 auto; padding: 60px 120px 120px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .vc { border-radius: 20px; padding: 52px 44px; position: relative; overflow: hidden; }
     .vc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad); }
     .vc-light { background: var(--lcard); border: 1px solid var(--lborder); box-shadow: 0 2px 12px rgba(0,0,0,.05); }
@@ -179,11 +180,32 @@
     .b-app { grid-column: 1; grid-row: 1 / 3; display: flex; flex-direction: column; }
     .b-app .b-inner { flex: 1; display: flex; flex-direction: column; }
     .b-app .b-desc { flex: 1; }
-    .app-features { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+    .app-features { margin-top: 24px; display: flex; flex-direction: column; gap: 14px; }
     .app-feat { display: flex; align-items: flex-start; gap: 12px; }
     .app-feat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--grad); flex-shrink: 0; margin-top: 6px; }
     .app-feat-text { font-size: .87rem; color: var(--muted); line-height: 1.6; }
     .app-feat-text strong { color: var(--white); font-weight: 600; }
+
+    /* ── BENTO MINI PHONE ── */
+    .b-phone-wrap { display: flex; justify-content: center; padding: 20px 0 16px; }
+    .b-phone { width: 195px; background: #0f1220; border-radius: 28px; border: 6px solid #262a3e; box-shadow: 0 0 0 1px rgba(255,255,255,.04), 0 20px 50px rgba(0,0,0,.5), 0 0 35px rgba(0,229,160,.1); overflow: hidden; position: relative; display: flex; flex-direction: column; }
+    .b-phone::before { content: ''; position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 42px; height: 3px; background: #262a3e; border-radius: 2px; z-index: 10; }
+    .bp-bar { background: linear-gradient(150deg, #131d2e, #0d1320); padding: 20px 10px 10px; border-bottom: 1px solid rgba(0,229,160,.12); flex-shrink: 0; }
+    .bp-logo { font-family: 'Space Grotesk',sans-serif; font-size: .42rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .bp-hero-card { margin: 8px 8px 0; background: linear-gradient(135deg, rgba(0,229,160,.14), rgba(47,143,255,.09)); border: 1px solid rgba(0,229,160,.2); border-radius: 9px; padding: 7px 9px; flex-shrink: 0; }
+    .bp-card-eye { font-size: .37rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--a1); margin-bottom: 2px; }
+    .bp-card-title { font-family: 'Space Grotesk',sans-serif; font-size: .58rem; font-weight: 700; }
+    .bp-section { padding: 8px 8px 0; flex-shrink: 0; }
+    .bp-section-lbl { font-size: .35rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); margin-bottom: 5px; }
+    .bp-thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+    .bp-thumb { height: 52px; border-radius: 6px; overflow: hidden; position: relative; }
+    .bp-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .bp-thumb-lbl { position: absolute; bottom: 3px; left: 4px; font-size: .3rem; font-weight: 700; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.7); }
+    .bp-chat { flex: 1; padding: 8px; min-height: 70px; display: flex; flex-direction: column; gap: 5px; }
+    .bp-chat-lbl { font-size: .33rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); margin-bottom: 2px; }
+    .bp-msg { border-radius: 7px; padding: 4px 7px; font-size: .39rem; max-width: 84%; line-height: 1.45; }
+    .bp-msg-u { align-self: flex-end; background: rgba(0,229,160,.12); border: 1px solid rgba(0,229,160,.2); color: rgba(238,240,248,.85); border-radius: 7px 7px 2px 7px; }
+    .bp-msg-ai { align-self: flex-start; background: rgba(47,143,255,.1); border: 1px solid rgba(47,143,255,.2); color: rgba(238,240,248,.75); border-radius: 7px 7px 7px 2px; }
     .btags { display: flex; flex-wrap: wrap; gap: 6px; padding: 24px 32px; border-top: 1px solid var(--border); margin-top: auto; }
     .btag { font-size: .7rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; background: rgba(0,229,160,.08); border: 1px solid rgba(0,229,160,.2); color: var(--a1); }
 
@@ -279,7 +301,7 @@
     .cta-section .wrap { position: relative; z-index: 1; }
     .cta-section h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.12; margin-bottom: 18px; color: var(--white); }
     .cta-section > div > div > p { color: var(--muted); font-size: 1.05rem; max-width: 580px; margin: 0 auto 56px; line-height: 1.8; }
-    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 44px; }
     .btn-p { display: inline-flex; align-items: center; gap: 10px; background: var(--grad); color: #0e1018; font-family: 'Space Grotesk',sans-serif; font-weight: 700; font-size: .92rem; padding: 15px 38px; border-radius: 50px; text-decoration: none; transition: opacity .2s, transform .2s; }
     .btn-p:hover { opacity: .88; transform: translateY(-2px); }
     .btn-g { display: inline-flex; align-items: center; gap: 10px; color: var(--white); font-family: 'Space Grotesk',sans-serif; font-weight: 600; font-size: .92rem; padding: 14px 38px; border-radius: 50px; text-decoration: none; border: 1px solid var(--border); transition: border-color .2s, color .2s, transform .2s; }
@@ -422,17 +444,26 @@
     <div class="stat-box fi">
       <div class="stat-ico"><div class="ico-sm"><svg viewBox="0 0 17 17" fill="none" stroke="url(#s1)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="s1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="8.5" cy="5" r="2.5"/><path d="M3 14s1-4 5.5-4 5.5 4 5.5 4"/></svg></div></div>
       <div class="stat-n">18</div>
-      <div class="stat-l">Years building<br>digital products</div>
+      <div class="stat-l">Years building digital products</div>
+      <div class="stat-sub">Fitness, wellness, consumer tech, and branded platforms</div>
     </div>
     <div class="stat-box fi d1">
       <div class="stat-ico"><div class="ico-sm"><svg viewBox="0 0 17 17" fill="none" stroke="url(#s2)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="s2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><rect x="4" y="2" width="9" height="13" rx="2.5"/><line x1="6.5" y1="13" x2="10.5" y2="13"/></svg></div></div>
       <div class="stat-n">3</div>
-      <div class="stat-l">Platforms — web,<br>iOS &amp; Android</div>
+      <div class="stat-l">Platforms — web, iOS &amp; Android</div>
+      <div class="stat-sub">One unified codebase. One brand. Zero fragmentation.</div>
     </div>
     <div class="stat-box fi d2">
       <div class="stat-ico"><div class="ico-sm"><svg viewBox="0 0 17 17" fill="none" stroke="url(#s3)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="s3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M8.5 2a4.5 4.5 0 0 1 4.5 4.5C13 9.5 8.5 15 8.5 15S4 9.5 4 6.5A4.5 4.5 0 0 1 8.5 2z"/><circle cx="8.5" cy="6.5" r="1.7"/></svg></div></div>
       <div class="stat-n">1</div>
-      <div class="stat-l">Private AI layer,<br>owned by you</div>
+      <div class="stat-l">Private AI layer, owned by you</div>
+      <div class="stat-sub">Hamilton House controls its own intelligence — not rented.</div>
+    </div>
+    <div class="stat-box fi d3">
+      <div class="stat-ico"><div class="ico-sm"><svg viewBox="0 0 17 17" fill="none" stroke="url(#s4)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="s4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><line x1="8.5" y1="1.5" x2="8.5" y2="15.5"/><path d="M11.5 4H7a2.5 2.5 0 0 0 0 5h3a2.5 2.5 0 0 1 0 5H5.5"/></svg></div></div>
+      <div class="stat-n">$4,500</div>
+      <div class="stat-l">Per month, all-in</div>
+      <div class="stat-sub">Platform, AI, analytics, community — no licensing or per-seat fees.</div>
     </div>
   </div>
 </div>
@@ -487,6 +518,34 @@
         <div class="b-eye">App Experience</div>
         <div class="b-title">Web, iOS &amp; Android</div>
         <div class="b-desc">Breathwork, HIGHX, nutrition, sleep, recovery, live programming, and community — one Hamilton House platform on every device.</div>
+        <div class="b-phone-wrap">
+          <div class="b-phone">
+            <div class="bp-bar">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;">
+                <div class="bp-logo">Hamilton House</div>
+                <div style="width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#4a9eff,#6b3fff);display:flex;align-items:center;justify-content:center;font-size:.38rem;font-weight:800;color:#fff;">JM</div>
+              </div>
+              <div style="font-size:.44rem;color:rgba(238,240,248,.35);margin-bottom:1px;">Good morning</div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700;">Laird Hamilton</div>
+            </div>
+            <div class="bp-hero-card">
+              <div class="bp-card-eye">Today's Practice</div>
+              <div class="bp-card-title">Morning Breathwork + HIGHX</div>
+            </div>
+            <div class="bp-section">
+              <div class="bp-section-lbl">Your World</div>
+              <div class="bp-thumbs">
+                <div class="bp-thumb"><img src="breathwork-new.webp" alt="Breathwork"><div class="bp-thumb-lbl">Breathwork</div></div>
+                <div class="bp-thumb"><img src="recovery-new.jpg" alt="Recovery"><div class="bp-thumb-lbl">Recovery</div></div>
+              </div>
+            </div>
+            <div class="bp-chat">
+              <div class="bp-chat-lbl">Ask Laird</div>
+              <div class="bp-msg bp-msg-u">Best breathwork before surf?</div>
+              <div class="bp-msg bp-msg-ai">Box breathing — 4 in, 4 hold, 4 out. Three rounds minimum.</div>
+            </div>
+          </div>
+        </div>
         <div class="app-features">
           <div class="app-feat"><div class="app-feat-dot"></div><div class="app-feat-text"><strong>Live programming</strong> — Laird and Gabby-led sessions streamed to members in real time</div></div>
           <div class="app-feat"><div class="app-feat-dot"></div><div class="app-feat-text"><strong>Personalized paths</strong> — content adapts to each member's practice history and goals</div></div>
@@ -532,11 +591,11 @@
       <div class="chart-wrap">
         <div class="chart-lbl">Engagement by Category</div>
         <div class="bar-chart">
-          <div class="bar-col"><div class="bar-val">72%</div><div class="bar-fill" style="height:72%"></div><div class="bar-lbl">Breath</div></div>
-          <div class="bar-col"><div class="bar-val">88%</div><div class="bar-fill" style="height:88%"></div><div class="bar-lbl">HIGHX</div></div>
-          <div class="bar-col"><div class="bar-val">56%</div><div class="bar-fill" style="height:56%"></div><div class="bar-lbl">Nutri</div></div>
-          <div class="bar-col"><div class="bar-val">96%</div><div class="bar-fill" style="height:96%"></div><div class="bar-lbl">AI Chat</div></div>
-          <div class="bar-col"><div class="bar-val">62%</div><div class="bar-fill" style="height:62%"></div><div class="bar-lbl">Shop</div></div>
+          <div class="bar-col"><div class="bar-val">72%</div><div class="bar-fill" style="height:62px"></div><div class="bar-lbl">Breath</div></div>
+          <div class="bar-col"><div class="bar-val">88%</div><div class="bar-fill" style="height:78px"></div><div class="bar-lbl">HIGHX</div></div>
+          <div class="bar-col"><div class="bar-val">56%</div><div class="bar-fill" style="height:46px"></div><div class="bar-lbl">Nutri</div></div>
+          <div class="bar-col"><div class="bar-val">96%</div><div class="bar-fill" style="height:90px"></div><div class="bar-lbl">AI Chat</div></div>
+          <div class="bar-col"><div class="bar-val">62%</div><div class="bar-fill" style="height:52px"></div><div class="bar-lbl">Shop</div></div>
         </div>
         <div class="chart-callout"><strong>Insight:</strong> Members using AI chat complete 3× more video the following week.</div>
       </div>
@@ -619,8 +678,6 @@
         <h4>Book Again</h4><p>The platform drives the next physical visit</p>
       </div>
     </div>
-    <div class="loop-return fi d3"></div>
-    <div class="loop-return-label fi d3">Members return — the platform learns — the experience improves</div>
   </div>
 </div>
 
