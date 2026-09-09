@@ -35,13 +35,6 @@
     h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
     .g { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-    .ico {
-      width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, rgba(0,229,160,.13), rgba(47,143,255,.08));
-      border: 1px solid rgba(0,229,160,.22); margin-bottom: 16px;
-    }
-    .ico svg { width: 22px; height: 22px; }
     .ico-sm {
       width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
@@ -49,6 +42,14 @@
       border: 1px solid rgba(0,229,160,.18);
     }
     .ico-sm svg { width: 17px; height: 17px; }
+
+    .ico {
+      width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgba(0,229,160,.13), rgba(47,143,255,.08));
+      border: 1px solid rgba(0,229,160,.22); margin-bottom: 16px;
+    }
+    .ico svg { width: 22px; height: 22px; }
 
     .l-ico {
       width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
@@ -96,7 +97,6 @@
         radial-gradient(ellipse 55% 65% at 80% 50%, rgba(0,229,160,.12) 0%, transparent 60%),
         radial-gradient(ellipse 35% 45% at 15% 80%, rgba(47,143,255,.09) 0%, transparent 55%);
     }
-
     .hero-left { position: relative; z-index: 1; }
     .hero h1 {
       font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 800; line-height: 1.05; letter-spacing: -2px;
@@ -112,7 +112,6 @@
     .meta-row .val { color: var(--white); font-weight: 600; }
     .meta-dot { width: 4px; height: 4px; background: var(--dim); border-radius: 50%; }
 
-    /* Hero right: phone + insights slightly overlapping */
     .hero-right { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; }
     .phone-scene { display: flex; align-items: flex-start; position: relative; }
 
@@ -152,7 +151,6 @@
     .app-fval { font-size: .72rem; font-weight: 800; font-family: 'Space Grotesk',sans-serif; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .app-flbl { font-size: .44rem; color: var(--muted); }
 
-    /* Insights panel: slightly overlapping phone */
     .insights-panel {
       width: 196px; flex-shrink: 0;
       background: rgba(16,18,30,.95);
@@ -191,71 +189,76 @@
     .stat-n { font-family: 'Space Grotesk',sans-serif; font-size: 3.2rem; font-weight: 800; line-height: 1; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
     .stat-l { color: var(--muted); font-size: .83rem; line-height: 1.5; }
 
-    /* ══ LIGHT SECTIONS ══ */
-    .light { background: var(--lbg); color: var(--ltext); }
-    .light .eyebrow { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .light .sh { color: var(--ltext); }
-    .light .sp { color: var(--lmuted); }
-
     .wrap { max-width: 1160px; margin: 0 auto; padding: 0 36px; }
     .eyebrow { font-size: .68rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 14px; }
     .sh { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px; }
     .sp { color: var(--muted); font-size: 1rem; line-height: 1.8; max-width: 600px; margin-bottom: 56px; }
 
-    /* ── VISION ── */
-    .vision-section { background: var(--lbg); padding: 120px 0; }
-    .vision-section .wrap-head { max-width: 1160px; margin: 0 auto; padding: 0 36px; text-align: center; margin-bottom: 72px; }
-    .vision-section .sh { color: var(--ltext); }
+    /* ══════════════════════
+       VISION — redesigned
+    ══════════════════════ */
+    .vision-section { background: var(--lbg); padding: 120px 0 0; }
 
-    .vision-quote-block {
-      background: linear-gradient(150deg, rgba(0,229,160,.08) 0%, rgba(47,143,255,.05) 100%);
-      border-top: 1px solid rgba(0,229,160,.2);
-      border-bottom: 1px solid rgba(47,143,255,.12);
-      padding: 72px 36px; margin-bottom: 64px;
-      position: relative; overflow: hidden;
+    .vision-head { max-width: 1160px; margin: 0 auto; padding: 0 36px 80px; text-align: center; }
+    .vision-head .eyebrow { display: block; margin-bottom: 16px; }
+    .vision-head .sh { color: var(--ltext); font-size: clamp(2.4rem, 5vw, 3.6rem); max-width: 600px; margin: 0 auto 20px; }
+    .vision-head .lead { color: var(--lmuted); font-size: 1.05rem; line-height: 1.8; max-width: 540px; margin: 0 auto; }
+
+    /* Full-bleed quote stripe */
+    .vision-stripe {
+      background: linear-gradient(120deg, #0d1525 0%, #0f1e38 50%, #0d1525 100%);
+      border-top: 1px solid rgba(0,229,160,.15); border-bottom: 1px solid rgba(47,143,255,.12);
+      padding: 80px 36px; margin-bottom: 0; position: relative; overflow: hidden;
     }
-    .vision-quote-block::before {
-      content: '"'; position: absolute; top: -30px; left: 28px;
-      font-family: 'Space Grotesk',sans-serif; font-size: 16rem; font-weight: 800; line-height: 1;
+    .vision-stripe::before {
+      content: '"'; position: absolute; top: -60px; left: 20px;
+      font-family: 'Space Grotesk',sans-serif; font-size: 22rem; font-weight: 800; line-height: 1;
       background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      opacity: .12; user-select: none; pointer-events: none;
+      opacity: .06; user-select: none; pointer-events: none;
+    }
+    .vision-stripe::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(0,229,160,.07) 0%, transparent 65%);
     }
     .vision-quote {
-      max-width: 1160px; margin: 0 auto;
+      max-width: 1160px; margin: 0 auto; position: relative; z-index: 1;
       font-family: 'Space Grotesk',sans-serif;
-      font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.35; letter-spacing: -.3px;
-      color: var(--ltext);
+      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; line-height: 1.4; letter-spacing: -.2px;
+      color: var(--white);
     }
+    .vision-quote em { font-style: normal; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-    .vision-cols { max-width: 1160px; margin: 0 auto; padding: 0 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .vc-outlined {
-      background: var(--lcard); border: 2px solid transparent;
-      background-clip: padding-box;
-      border-radius: 18px; padding: 36px;
-      position: relative;
-      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    /* Photo cards */
+    .vision-cards { max-width: 1160px; margin: 0 auto; padding: 0 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .vc-photo {
+      position: relative; overflow: hidden; height: 420px;
+      display: flex; flex-direction: column; justify-content: flex-end;
     }
-    .vc-outlined::before {
-      content: ''; position: absolute; inset: -2px; border-radius: 20px; z-index: -1;
-      background: var(--grad);
+    .vc-photo:first-child { border-radius: 0 0 0 24px; }
+    .vc-photo:last-child { border-radius: 0 0 24px 0; }
+    .vc-photo .vc-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .vc-photo::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(6,9,20,.96) 0%, rgba(6,9,20,.65) 45%, rgba(6,9,20,.2) 100%);
     }
-    .vc-outlined .vc-eye { font-size: .64rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 14px; }
-    .vc-outlined p { color: var(--lmuted); font-size: .97rem; line-height: 1.85; }
-    .vc-outlined p strong { color: var(--ltext); font-weight: 600; }
+    .vc-photo-inner { position: relative; z-index: 1; padding: 36px; }
+    .vc-eye { font-size: .64rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 10px; display: block; }
+    .vc-photo h3 { font-family: 'Space Grotesk',sans-serif; font-size: 1.4rem; font-weight: 800; letter-spacing: -.5px; color: var(--white); margin-bottom: 12px; line-height: 1.2; }
+    .vc-photo p { color: rgba(238,240,248,.68); font-size: .92rem; line-height: 1.75; }
+    .vc-photo p strong { color: var(--white); font-weight: 600; }
+    .vc-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad); z-index: 2; }
+    /* left card: green tint accent on right edge */
+    .vc-photo:first-child::before { content: ''; position: absolute; top: 0; right: 0; width: 1px; height: 100%; background: linear-gradient(to bottom, rgba(0,229,160,.35), transparent); z-index: 3; }
 
-    .vc-filled {
-      background: linear-gradient(135deg, #0d1a2e, #0f2040);
-      border-radius: 18px; padding: 36px;
-      position: relative; overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,229,160,.1);
-    }
-    .vc-filled::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad); }
-    .vc-filled .vc-eye { font-size: .64rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 14px; }
-    .vc-filled p { color: rgba(238,240,248,.7); font-size: .97rem; line-height: 1.85; }
-    .vc-filled p strong { color: var(--white); font-weight: 600; }
+    /* ══════════════════════
+       PLATFORM — dark
+    ══════════════════════ */
+    .platform-section { background: var(--bg); padding: 0 0 100px; }
+    .platform-header { max-width: 1160px; margin: 0 auto; padding: 100px 36px 52px; }
+    .platform-header .eyebrow { display: block; margin-bottom: 14px; }
+    .platform-header .sh { color: var(--white); }
+    .platform-header .sp { color: var(--muted); margin-bottom: 0; }
 
-    /* ── BENTO PLATFORM ── */
-    .platform-section { background: var(--lbg); padding: 0 0 100px; }
     .bento {
       max-width: 1160px; margin: 0 auto; padding: 0 36px;
       display: grid;
@@ -264,18 +267,17 @@
     }
 
     .b-card {
-      background: var(--lcard); border: 1px solid var(--lborder);
+      background: var(--card); border: 1px solid var(--border);
       border-radius: 20px; overflow: hidden;
       transition: box-shadow .3s, transform .25s;
     }
-    .b-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .b-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,.4), 0 0 0 1px rgba(0,229,160,.1); transform: translateY(-2px); }
     .b-inner { padding: 28px 28px 24px; }
     .b-eye { font-size: .62rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; margin-top: 12px; }
-    .b-title { font-family: 'Space Grotesk',sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--ltext); }
-    .b-desc { color: var(--lmuted); font-size: .87rem; line-height: 1.7; }
-    .b-divider { height: 1px; background: var(--lborder); }
+    .b-title { font-family: 'Space Grotesk',sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--white); }
+    .b-desc { color: var(--muted); font-size: .87rem; line-height: 1.7; }
+    .b-divider { height: 1px; background: var(--border); }
 
-    /* App card */
     .b-app { grid-column: 1 / 4; display: grid; grid-template-columns: 1fr auto; gap: 0; align-items: stretch; }
     .b-app .b-inner { display: flex; flex-direction: column; justify-content: center; }
     .b-app .b-desc { max-width: 460px; }
@@ -308,50 +310,46 @@
     .ms-mini-info { padding: 3px 4px 4px; }
     .ms-mini-t { font-size: .38rem; font-weight: 700; }
     .ms-mini-s { font-size: .34rem; color: var(--muted); }
-    .btags { display: flex; flex-wrap: wrap; gap: 6px; padding: 16px 28px 20px; border-top: 1px solid var(--lborder); }
-    .btag { font-size: .7rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; background: rgba(0,229,160,.07); border: 1px solid rgba(0,229,160,.2); color: #008a5e; }
+    .btags { display: flex; flex-wrap: wrap; gap: 6px; padding: 16px 28px 20px; border-top: 1px solid var(--border); }
+    .btag { font-size: .7rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; background: rgba(0,229,160,.08); border: 1px solid rgba(0,229,160,.2); color: var(--a1); }
 
-    /* AI card */
     .b-ai { grid-column: 1; }
-    .ai-chat-wrap { background: var(--lraised); border-top: 1px solid var(--lborder); padding: 18px 20px; display: flex; flex-direction: column; gap: 9px; }
-    .ac-lbl { font-size: .56rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ldim); margin-bottom: 2px; }
+    .ai-chat-wrap { background: var(--raised); border-top: 1px solid var(--border); padding: 18px 20px; display: flex; flex-direction: column; gap: 9px; }
+    .ac-lbl { font-size: .56rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
     .ac-bubble { border-radius: 11px; padding: 9px 13px; font-size: .77rem; line-height: 1.55; }
-    .ac-bubble.user { background: rgba(47,143,255,.1); border: 1px solid rgba(47,143,255,.2); color: var(--ltext); }
-    .ac-bubble.ai { background: rgba(0,229,160,.07); border: 1px solid rgba(0,229,160,.18); color: var(--lmuted); }
+    .ac-bubble.user { background: rgba(47,143,255,.12); border: 1px solid rgba(47,143,255,.22); color: var(--white); }
+    .ac-bubble.ai { background: rgba(0,229,160,.08); border: 1px solid rgba(0,229,160,.2); color: var(--muted); }
     .ac-avatar-row { display: flex; align-items: center; gap: 7px; }
     .ac-av { width: 22px; height: 22px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: .52rem; font-weight: 800; color: #0e1018; flex-shrink: 0; }
 
-    /* Analytics card */
     .b-analytics { grid-column: 2; }
-    .chart-wrap { background: var(--lraised); border-top: 1px solid var(--lborder); padding: 20px; }
-    .chart-lbl { font-size: .6rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ldim); margin-bottom: 14px; }
+    .chart-wrap { background: var(--raised); border-top: 1px solid var(--border); padding: 20px; }
+    .chart-lbl { font-size: .6rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
     .bar-chart { display: flex; align-items: flex-end; gap: 6px; height: 80px; }
     .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; }
     .bar-fill { width: 100%; border-radius: 4px 4px 0 0; background: var(--grad); min-height: 4px; }
-    .bar-lbl { font-size: .55rem; color: var(--ldim); text-align: center; }
-    .chart-callout { margin-top: 12px; background: rgba(0,229,160,.06); border: 1px solid rgba(0,229,160,.18); border-radius: 9px; padding: 9px 12px; font-size: .74rem; color: var(--lmuted); line-height: 1.5; }
-    .chart-callout strong { color: #008a5e; }
+    .bar-lbl { font-size: .55rem; color: var(--dim); text-align: center; }
+    .chart-callout { margin-top: 12px; background: rgba(0,229,160,.06); border: 1px solid rgba(0,229,160,.18); border-radius: 9px; padding: 9px 12px; font-size: .74rem; color: var(--muted); line-height: 1.5; }
+    .chart-callout strong { color: var(--a1); }
 
-    /* Experts card */
     .b-experts { grid-column: 3; }
-    .experts-wrap { border-top: 1px solid var(--lborder); padding: 18px 20px; }
+    .experts-wrap { border-top: 1px solid var(--border); padding: 18px 20px; }
     .expert-row { display: flex; gap: 10px; margin-bottom: 14px; }
     .ea { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
     .ea-circle { width: 46px; height: 46px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk',sans-serif; font-size: .75rem; font-weight: 800; color: #0e1018; box-shadow: 0 0 16px rgba(0,229,160,.18); }
-    .ea-name { font-size: .6rem; font-weight: 600; color: var(--ltext); text-align: center; }
-    .ea-role { font-size: .55rem; color: var(--ldim); text-align: center; }
-    .experts-note { font-size: .8rem; color: var(--lmuted); line-height: 1.65; }
+    .ea-name { font-size: .6rem; font-weight: 600; color: var(--white); text-align: center; }
+    .ea-role { font-size: .55rem; color: var(--muted); text-align: center; }
+    .experts-note { font-size: .8rem; color: var(--muted); line-height: 1.65; }
 
-    /* Commerce card */
     .b-commerce { grid-column: 1 / 4; }
     .b-commerce .b-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
     .b-commerce .b-desc { max-width: 420px; }
     .rev-wrap { display: flex; flex-direction: column; gap: 12px; }
     .rev-item { display: flex; flex-direction: column; gap: 5px; }
     .rev-label-row { display: flex; justify-content: space-between; }
-    .rev-name { font-size: .8rem; color: var(--lmuted); }
-    .rev-badge { font-size: .7rem; font-weight: 700; color: #008a5e; }
-    .rev-track { height: 7px; background: var(--lraised); border-radius: 4px; overflow: hidden; border: 1px solid var(--lborder); }
+    .rev-name { font-size: .8rem; color: var(--muted); }
+    .rev-badge { font-size: .7rem; font-weight: 700; color: var(--a1); }
+    .rev-track { height: 7px; background: var(--raised); border-radius: 4px; overflow: hidden; border: 1px solid var(--border); }
     .rev-fill { height: 100%; border-radius: 4px; background: var(--grad); }
 
     /* ── THE LOOP ── */
@@ -381,7 +379,7 @@
     .loop-return::before { content: ''; position: absolute; left: 0; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-right: 8px solid rgba(0,229,160,.5); }
     .loop-return-label { text-align: center; margin-top: 10px; font-size: .67rem; color: var(--dim); letter-spacing: 1px; text-transform: uppercase; }
 
-    /* ── APPROACH ── */
+    /* ── APPROACH (light) ── */
     .approach-section { background: var(--lbg); padding: 100px 0; }
     .approach-grid { max-width: 1160px; margin: 0 auto; padding: 0 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
     .a-card {
@@ -397,7 +395,7 @@
     .a-card p { color: var(--lmuted); font-size: .92rem; line-height: 1.75; margin-bottom: 16px; }
     .a-pill { display: inline-block; font-size: .75rem; font-weight: 700; background: rgba(0,229,160,.07); border: 1px solid rgba(0,229,160,.22); color: #008a5e; padding: 5px 14px; border-radius: 50px; }
 
-    /* ── NEXT STEPS ── */
+    /* ── NEXT STEPS (light) ── */
     .steps-section { background: var(--lraised); border-top: 1px solid var(--lborder); padding: 100px 36px; }
     .steps-inner { max-width: 760px; margin: 0 auto; }
     .steps-section .sh { color: var(--ltext); }
@@ -411,7 +409,7 @@
     .vtl-body h4 { font-size: 1.05rem; font-weight: 700; color: var(--ltext); margin-bottom: 8px; }
     .vtl-body p { color: var(--lmuted); font-size: .92rem; line-height: 1.75; }
 
-    /* ── CTA ── */
+    /* ── CTA (dark) ── */
     .cta-section { background: var(--bg); position: relative; overflow: hidden; padding: 140px 36px; text-align: center; }
     .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(0,229,160,.1) 0%, transparent 65%), radial-gradient(ellipse 35% 35% at 80% 20%, rgba(47,143,255,.07) 0%, transparent 55%); }
     .cta-section .wrap { position: relative; z-index: 1; }
@@ -442,7 +440,8 @@
       .b-commerce{grid-column:1/3;}
       .b-commerce .b-inner{grid-template-columns:1fr;}
       .approach-grid{grid-template-columns:1fr; padding:0 24px;}
-      .vision-cols{grid-template-columns:1fr; padding:0 24px;}
+      .vision-cards{grid-template-columns:1fr; padding:0 24px;}
+      .vc-photo:first-child{border-radius:12px 12px 0 0;} .vc-photo:last-child{border-radius:0 0 12px 12px;}
       .loop-diagram{flex-wrap:wrap; gap:28px; justify-content:center;}
       .loop-arrow,.loop-return,.loop-return-label{display:none;}
       .loop-node{min-width:130px;}
@@ -456,8 +455,8 @@
       .bento{grid-template-columns:1fr; padding:0 16px;}
       .b-app,.b-commerce{grid-column:1;}
       .b-commerce .b-inner{grid-template-columns:1fr;}
-      .approach-grid,.vision-cols{padding:0 16px; grid-template-columns:1fr;}
-      .vision-quote-block{padding:52px 20px;}
+      .approach-grid{padding:0 16px; grid-template-columns:1fr;}
+      .vision-stripe{padding:56px 20px;}
       .steps-section,.loop-section,.cta-section{padding:80px 20px;}
       .stats-section{padding:56px 16px;}
       .stats-grid{grid-template-columns:1fr 1fr; border-radius:16px;}
@@ -530,7 +529,6 @@
           <div class="app-fstat"><div class="app-fval">3.2k</div><div class="app-flbl">Community</div></div>
         </div>
       </div>
-      <!-- Insights panel: slightly overlapping phone -->
       <div class="insights-panel">
         <div class="ip-member">
           <div class="ip-avatar">JM</div>
@@ -584,45 +582,52 @@
 
 <!-- VISION -->
 <div id="vision" class="vision-section">
-  <div class="wrap-head fi">
-    <p class="eyebrow">The Vision</p>
-    <h2 class="sh" style="color:var(--ltext); text-align:center;">Built for exactly this</h2>
+  <div class="vision-head fi">
+    <span class="eyebrow">The Vision</span>
+    <h2 class="sh">Built for exactly this</h2>
+    <p class="lead">Hamilton House is not just a wellness brand. It is a living world — built around the trust Laird and Gabby have spent a lifetime earning.</p>
   </div>
-  <div class="vision-quote-block fi d1">
+
+  <div class="vision-stripe fi d1">
     <p class="vision-quote">
-      Hamilton House can become the <span class="g">trusted gateway</span> to a world of health and performance — interactive, personalized, and connected to a real community. Not just content. A living experience that grows with every member interaction.
+      The platform becomes the <em>trusted gateway</em> to a world of health and performance — interactive, personalized, and connected to a real community. Not just content. A living experience that grows with every member interaction.
     </p>
   </div>
-  <div class="vision-cols">
-    <div class="vc-outlined fi">
-      <div class="l-ico">
-        <svg viewBox="0 0 22 22" fill="none" stroke="url(#v1)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="v1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="11" cy="7" r="3.5"/><circle cx="5" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M8.5 8c-1 3-3.5 5-3.5 7.2M13.5 8c1 3 3.5 5 3.5 7.2"/></svg>
+
+  <div class="vision-cards">
+    <div class="vc-photo fi">
+      <div class="vc-accent"></div>
+      <img class="vc-bg" src="breathwork.png" alt="Breathwork">
+      <div class="vc-photo-inner">
+        <span class="vc-eye">The Foundation</span>
+        <h3>A lifetime of trust is the product</h3>
+        <p>Laird and Gabby are surrounded by extraordinary people — trainers, physicians, recovery experts, nutritionists. What makes Hamilton House special is not that they claim every answer. It is that they know, trust, and learn from people who do.<br><br><strong>That network is the moat.</strong></p>
       </div>
-      <div class="vc-eye">The Foundation</div>
-      <p>Laird and Gabby have spent a lifetime learning. They are surrounded by extraordinary people — trainers, physicians, recovery experts, nutritionists. What makes Hamilton House special is not that they claim to have every answer. It is that they know, trust, and learn from people who do.<br><br><strong>That trust is the product.</strong></p>
     </div>
-    <div class="vc-filled fi d1">
-      <div class="l-ico">
-        <svg viewBox="0 0 22 22" fill="none" stroke="url(#v2)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="v2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M11 3a7 7 0 0 1 7 7c0 5-7 12-7 12S4 15 4 10a7 7 0 0 1 7-7z"/><circle cx="11" cy="10" r="2.5"/></svg>
+    <div class="vc-photo fi d1">
+      <div class="vc-accent"></div>
+      <img class="vc-bg" src="recovery.png" alt="Recovery">
+      <div class="vc-photo-inner">
+        <span class="vc-eye">The Opportunity</span>
+        <h3>Physical and digital, locked together</h3>
+        <p>Someone experiences Hamilton House at a resort in Hawaii or Oregon. They go home, continue the practice inside the app, stay connected to the community, book another visit — and keep learning from the people Laird and Gabby trust.<br><br><strong>That loop is the business.</strong></p>
       </div>
-      <div class="vc-eye">The Opportunity</div>
-      <p>Someone experiences Hamilton House at a resort in Hawaii or Oregon. They go home, continue the practice inside the app, stay connected to the community, book another visit — and keep learning from Laird, Gabby, and the people they trust.<br><br><strong>That loop is the business.</strong> And fig1 is how you build it without starting over every time you learn something.</p>
     </div>
   </div>
 </div>
 
-<!-- PLATFORM -->
+<!-- PLATFORM (dark) -->
 <div id="platform" class="platform-section">
-  <div class="wrap" style="padding-top:80px; margin-bottom:40px;">
-    <p class="eyebrow fi">What We'll Build</p>
-    <h2 class="sh fi d1" style="color:var(--ltext);">Every layer of the experience</h2>
-    <p class="sp fi d2" style="color:var(--lmuted);">Web, iOS, Android, AI, analytics, expert network, and commerce — all living together and evolving as the business evolves.</p>
+  <div class="platform-header fi">
+    <span class="eyebrow">What We'll Build</span>
+    <h2 class="sh">Every layer of the experience</h2>
+    <p class="sp">Web, iOS, Android, AI, analytics, expert network, and commerce — all living together and evolving as the business evolves.</p>
   </div>
   <div class="bento">
 
     <div class="b-card b-app fi">
       <div class="b-inner">
-        <div class="l-ico">
+        <div class="ico">
           <svg viewBox="0 0 22 22" fill="none" stroke="url(#b1)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="b1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><rect x="5" y="2" width="12" height="18" rx="3"/><line x1="9" y1="18" x2="13" y2="18"/></svg>
         </div>
         <div class="b-eye">App Experience</div>
@@ -650,7 +655,7 @@
 
     <div class="b-card b-ai fi">
       <div class="b-inner">
-        <div class="l-ico">
+        <div class="ico">
           <svg viewBox="0 0 22 22" fill="none" stroke="url(#b2)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="b2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M11 2a7 7 0 0 1 7 7c0 5-7 12-7 12S4 14 4 9a7 7 0 0 1 7-7z"/><circle cx="11" cy="9" r="2.5"/></svg>
         </div>
         <div class="b-eye">AI Intelligence Layer</div>
@@ -668,7 +673,7 @@
 
     <div class="b-card b-analytics fi d1">
       <div class="b-inner">
-        <div class="l-ico">
+        <div class="ico">
           <svg viewBox="0 0 22 22" fill="none" stroke="url(#b3)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="b3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><line x1="17" y1="18" x2="17" y2="9"/><line x1="11" y1="18" x2="11" y2="4"/><line x1="5" y1="18" x2="5" y2="13"/></svg>
         </div>
         <div class="b-eye">Analytics</div>
@@ -691,7 +696,7 @@
 
     <div class="b-card b-experts fi d2">
       <div class="b-inner">
-        <div class="l-ico">
+        <div class="ico">
           <svg viewBox="0 0 22 22" fill="none" stroke="url(#b4)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="b4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="11" cy="7" r="3"/><circle cx="4" cy="16" r="2"/><circle cx="18" cy="16" r="2"/><path d="M9 10c-1 2.5-3 3.5-3 4.2M13 10c1 2.5 3 3.5 3 4.2M11 10v4"/></svg>
         </div>
         <div class="b-eye">Expert Network</div>
@@ -703,8 +708,8 @@
         <div class="expert-row">
           <div class="ea"><div class="ea-circle">K</div><div class="ea-name">Kenny</div><div class="ea-role">Movement</div></div>
           <div class="ea"><div class="ea-circle">M</div><div class="ea-name">Moe</div><div class="ea-role">Data</div></div>
-          <div class="ea"><div class="ea-circle" style="background:var(--lraised);box-shadow:none;border:2px dashed var(--lborder);color:var(--ldim);">+</div><div class="ea-name" style="color:var(--ldim);">Trainer</div><div class="ea-role">Strength</div></div>
-          <div class="ea"><div class="ea-circle" style="background:var(--lraised);box-shadow:none;border:2px dashed var(--lborder);color:var(--ldim);">+</div><div class="ea-name" style="color:var(--ldim);">Expert</div><div class="ea-role">Recovery</div></div>
+          <div class="ea"><div class="ea-circle" style="background:var(--raised);box-shadow:none;border:2px dashed var(--border);color:var(--dim);">+</div><div class="ea-name" style="color:var(--muted);">Trainer</div><div class="ea-role">Strength</div></div>
+          <div class="ea"><div class="ea-circle" style="background:var(--raised);box-shadow:none;border:2px dashed var(--border);color:var(--dim);">+</div><div class="ea-name" style="color:var(--muted);">Expert</div><div class="ea-role">Recovery</div></div>
         </div>
         <div class="experts-note">Someone discovers Kenny inside Hamilton House, experiences his training, subscribes to Bolt. The same model works for every person in Laird and Gabby's world.</div>
       </div>
@@ -713,7 +718,7 @@
     <div class="b-card b-commerce fi d1">
       <div class="b-inner">
         <div>
-          <div class="l-ico">
+          <div class="ico">
             <svg viewBox="0 0 22 22" fill="none" stroke="url(#b5)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="b5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="8" cy="19" r="1.2"/><circle cx="17" cy="19" r="1.2"/><path d="M2 2h3l2.2 10.5a1.8 1.8 0 0 0 1.8 1.5h8.2a1.8 1.8 0 0 0 1.8-1.5L20 6H6"/></svg>
           </div>
           <div class="b-eye">Commerce</div>
