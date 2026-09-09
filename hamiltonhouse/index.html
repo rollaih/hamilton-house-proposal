@@ -323,6 +323,7 @@
     .work-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: .78rem; font-weight: 600; color: var(--a1); text-decoration: none; transition: gap .2s; }
     .work-link:hover { gap: 10px; }
     .work-link svg { flex-shrink: 0; }
+    .work-thumb { height: 220px; flex-shrink: 0; display: block; background-size: cover; background-position: center center; background-repeat: no-repeat; background-color: #1a1f35; }
     @media(max-width:860px){ .work-grid{grid-template-columns:1fr;} .work-section{padding:60px 32px;} }
 
     .cta-section { background: var(--bg); position: relative; overflow: hidden; padding: 120px 120px 180px; text-align: center; }
@@ -815,7 +816,7 @@
 
       <!-- Making Sundays -->
       <div class="work-card fi d1">
-        <div style="height:220px;background:url('making-sundays-preview.jpg') center/cover no-repeat;flex-shrink:0;"></div>
+        <div class="work-thumb" style="background-image:url(making-sundays-preview.jpg);"></div>
         <div class="work-info">
           <div class="work-tag">Brand Platform</div>
           <div class="work-title">Making Sundays</div>
@@ -829,8 +830,8 @@
 
       <!-- Root 66 video -->
       <div class="work-card fi d2">
-        <div style="height:220px;background:url('root66-poster.jpg') center/cover no-repeat;flex-shrink:0;position:relative;">
-          <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        <div class="work-thumb" style="background-image:url(root66-poster.jpg);position:relative;">
+          <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
             <source src="root66-hero.mp4" type="video/mp4">
           </video>
         </div>
@@ -847,7 +848,7 @@
 
       <!-- AI Bot -->
       <div class="work-card fi d3">
-        <div style="height:220px;background:url('meiomi-preview.jpg') center/cover no-repeat;flex-shrink:0;"></div>
+        <div class="work-thumb" style="background-image:url(meiomi-preview.jpg);"></div>
         <div class="work-info">
           <div class="work-tag">Conversational AI</div>
           <div class="work-title">AI Concierge — Live Demo</div>
