@@ -70,7 +70,7 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       height: 62px; display: flex; align-items: center; justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 72px;
       background: rgba(14,16,24,.88); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--border);
     }
@@ -87,7 +87,7 @@
       min-height: 100vh;
       display: grid; grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 100px 40px 80px;
+      padding: 100px 100px 80px;
       position: relative; overflow: hidden;
       background: linear-gradient(160deg, #0e1018 0%, #10152a 60%, #0e1018 100%);
     }
@@ -116,7 +116,7 @@
     .phone-scene { display: flex; align-items: flex-start; position: relative; }
 
     .phone {
-      width: 260px; height: 480px; background: #0f1220; flex-shrink: 0;
+      width: 300px; height: 560px; background: #0f1220; flex-shrink: 0;
       border-radius: 42px; border: 9px solid #262a3e;
       box-shadow: 0 0 0 1px rgba(255,255,255,.04), 0 50px 100px rgba(0,0,0,.55), 0 0 70px rgba(0,229,160,.12);
       overflow: hidden; position: relative;
@@ -138,7 +138,7 @@
     .app-section-head { font-size: .56rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
     .app-row { display: flex; gap: 6px; margin-bottom: 6px; }
     .app-mini-card { flex: 1; background: rgba(22,25,41,.8); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    .app-mini-thumb { width: 100%; height: 72px; object-fit: cover; object-position: center top; display: block; }
+    .app-mini-thumb { width: 100%; height: 88px; object-fit: cover; object-position: center top; display: block; }
     .app-mini-info { padding: 5px 7px 6px; }
     .app-mini-title { font-size: .55rem; font-weight: 700; margin-bottom: 1px; }
     .app-mini-sub { font-size: .5rem; color: var(--muted); }
@@ -172,7 +172,7 @@
     .ip-stat .v { font-size: .68rem; font-weight: 700; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
     /* ── STATS ── */
-    .stats-section { background: var(--card); padding: 60px 24px; }
+    .stats-section { background: var(--card); padding: 60px 80px; }
     .stats-grid {
       max-width: 1160px; margin: 0 auto;
       display: grid; grid-template-columns: repeat(4,1fr);
@@ -189,7 +189,7 @@
     .stat-n { font-family: 'Space Grotesk',sans-serif; font-size: 3.2rem; font-weight: 800; line-height: 1; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
     .stat-l { color: var(--muted); font-size: .83rem; line-height: 1.5; }
 
-    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 80px; }
     .eyebrow { font-size: .68rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 14px; }
     .sh { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px; }
     .sp { color: var(--muted); font-size: 1rem; line-height: 1.8; max-width: 600px; margin-bottom: 56px; }
@@ -199,7 +199,7 @@
     ══════════════════════ */
     .vision-section { background: var(--lbg); padding: 120px 0 0; }
 
-    .vision-head { max-width: 1160px; margin: 0 auto; padding: 0 24px 60px; text-align: center; }
+    .vision-head { max-width: 1160px; margin: 0 auto; padding: 0 80px 60px; text-align: center; }
     .vision-head .eyebrow { display: block; margin-bottom: 16px; }
     .vision-head .sh { color: var(--ltext); font-size: clamp(2.4rem, 5vw, 3.6rem); max-width: 600px; margin: 0 auto 20px; }
     .vision-head .lead { color: var(--lmuted); font-size: 1.05rem; line-height: 1.8; max-width: 540px; margin: 0 auto; }
@@ -208,7 +208,7 @@
     .vision-stripe {
       background: linear-gradient(120deg, #0d1525 0%, #0f1e38 50%, #0d1525 100%);
       border-top: 1px solid rgba(0,229,160,.15); border-bottom: 1px solid rgba(47,143,255,.12);
-      padding: 64px 24px; margin-bottom: 0; position: relative; overflow: hidden;
+      padding: 64px 80px; margin-bottom: 0; position: relative; overflow: hidden;
     }
     .vision-stripe::before {
       content: '"'; position: absolute; top: -60px; left: 20px;
@@ -229,7 +229,7 @@
     .vision-quote em { font-style: normal; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
     /* Photo cards */
-    .vision-cards { max-width: 1160px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .vision-cards { max-width: 1160px; margin: 0 auto; padding: 0 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
     .vc-photo {
       position: relative; overflow: hidden; height: 420px;
       display: flex; flex-direction: column; justify-content: flex-end;
@@ -254,13 +254,13 @@
        PLATFORM — dark
     ══════════════════════ */
     .platform-section { background: var(--bg); padding: 0 0 100px; }
-    .platform-header { max-width: 1160px; margin: 0 auto; padding: 80px 24px 40px; }
+    .platform-header { max-width: 1160px; margin: 0 auto; padding: 80px 80px 40px; }
     .platform-header .eyebrow { display: block; margin-bottom: 14px; }
     .platform-header .sh { color: var(--white); }
     .platform-header .sp { color: var(--muted); margin-bottom: 0; }
 
     .bento {
-      max-width: 1160px; margin: 0 auto; padding: 0 24px;
+      max-width: 1160px; margin: 0 auto; padding: 0 80px;
       display: grid;
       grid-template-columns: 1.2fr 1fr 1fr;
       gap: 16px;
@@ -356,7 +356,7 @@
     .loop-section {
       background: linear-gradient(135deg, #0d1525, #0f1e35);
       border-top: 1px solid rgba(0,229,160,.12); border-bottom: 1px solid rgba(0,229,160,.12);
-      padding: 80px 24px;
+      padding: 80px 80px;
     }
     .loop-inner { max-width: 1160px; margin: 0 auto; }
     .loop-diagram { display: flex; align-items: flex-start; gap: 0; margin-top: 64px; }
@@ -381,7 +381,7 @@
 
     /* ── APPROACH (light) ── */
     .approach-section { background: var(--lbg); padding: 100px 0; }
-    .approach-grid { max-width: 1160px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .approach-grid { max-width: 1160px; margin: 0 auto; padding: 0 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
     .a-card {
       background: var(--lcard); border: 1px solid var(--lborder); border-radius: 20px;
       padding: 36px; position: relative; overflow: hidden;
@@ -396,7 +396,7 @@
     .a-pill { display: inline-block; font-size: .75rem; font-weight: 700; background: rgba(0,229,160,.07); border: 1px solid rgba(0,229,160,.22); color: #008a5e; padding: 5px 14px; border-radius: 50px; }
 
     /* ── NEXT STEPS (light) ── */
-    .steps-section { background: var(--lraised); border-top: 1px solid var(--lborder); padding: 80px 24px; }
+    .steps-section { background: var(--lraised); border-top: 1px solid var(--lborder); padding: 80px 80px; }
     .steps-inner { max-width: 760px; margin: 0 auto; }
     .steps-section .sh { color: var(--ltext); }
     .vtl { display: flex; flex-direction: column; }
@@ -410,7 +410,7 @@
     .vtl-body p { color: var(--lmuted); font-size: .92rem; line-height: 1.75; }
 
     /* ── CTA (dark) ── */
-    .cta-section { background: var(--bg); position: relative; overflow: hidden; padding: 100px 24px; text-align: center; }
+    .cta-section { background: var(--bg); position: relative; overflow: hidden; padding: 100px 80px; text-align: center; }
     .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(0,229,160,.1) 0%, transparent 65%), radial-gradient(ellipse 35% 35% at 80% 20%, rgba(47,143,255,.07) 0%, transparent 55%); }
     .cta-section .wrap { position: relative; z-index: 1; }
     .cta-section h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.12; margin-bottom: 18px; color: var(--white); }
@@ -509,11 +509,11 @@
           <div class="app-section-head">Your World</div>
           <div class="app-row">
             <div class="app-mini-card">
-              <img class="app-mini-thumb" src="breathwork.png" alt="Breathwork">
+              <img class="app-mini-thumb" src="breathwork-new.webp" alt="Breathwork">
               <div class="app-mini-info"><div class="app-mini-title">Breathwork</div><div class="app-mini-sub">12 sessions</div></div>
             </div>
             <div class="app-mini-card">
-              <img class="app-mini-thumb" src="recovery.png" alt="Recovery">
+              <img class="app-mini-thumb" src="recovery-new.jpg" alt="Recovery">
               <div class="app-mini-info"><div class="app-mini-title">Recovery</div><div class="app-mini-sub">Kenny · Bolt</div></div>
             </div>
           </div>
@@ -597,7 +597,7 @@
   <div class="vision-cards">
     <div class="vc-photo fi">
       <div class="vc-accent"></div>
-      <img class="vc-bg" src="breathwork.png" alt="Breathwork">
+      <img class="vc-bg" src="breathwork-new.webp" alt="Breathwork">
       <div class="vc-photo-inner">
         <span class="vc-eye">The Foundation</span>
         <h3>A lifetime of trust is the product</h3>
@@ -606,7 +606,7 @@
     </div>
     <div class="vc-photo fi d1">
       <div class="vc-accent"></div>
-      <img class="vc-bg" src="https://www.realsimple.com/thmb/1zj3NEeUyvhusLTd0tE_zSVH9CA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/DailyStretchingRoutine_ChildsPosecopy-e3cf0bc261be4393929c5aab356703c4.png" alt="Recovery">
+      <img class="vc-bg" src="recovery-new.jpg" alt="Recovery">
       <div class="vc-photo-inner">
         <span class="vc-eye">The Opportunity</span>
         <h3>Physical and digital, locked together</h3>
@@ -645,8 +645,8 @@
             <div class="ms-name">Hamilton House</div>
             <div class="ms-card"><div class="ms-card-title">Morning Breathwork · 12 min</div><div class="ms-card-sub">Laird Hamilton</div></div>
             <div class="ms-row">
-              <div class="ms-mini"><img class="ms-mini-thumb" src="breathwork.png" alt=""><div class="ms-mini-info"><div class="ms-mini-t">Breathwork</div><div class="ms-mini-s">12 sessions</div></div></div>
-              <div class="ms-mini"><img class="ms-mini-thumb" src="recovery.png" alt=""><div class="ms-mini-info"><div class="ms-mini-t">Recovery</div><div class="ms-mini-s">Kenny</div></div></div>
+              <div class="ms-mini"><img class="ms-mini-thumb" src="breathwork-new.webp" alt=""><div class="ms-mini-info"><div class="ms-mini-t">Breathwork</div><div class="ms-mini-s">12 sessions</div></div></div>
+              <div class="ms-mini"><img class="ms-mini-thumb" src="recovery-new.jpg" alt=""><div class="ms-mini-info"><div class="ms-mini-t">Recovery</div><div class="ms-mini-s">Kenny</div></div></div>
             </div>
           </div>
         </div>
