@@ -57,7 +57,7 @@
     /* ── HERO ── */
     .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 100px 120px 80px; position: relative; overflow: hidden; background: linear-gradient(160deg, #0e1018 0%, #10152a 60%, #0e1018 100%); }
     .hero::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 55% 65% at 80% 50%, rgba(0,229,160,.12) 0%, transparent 60%), radial-gradient(ellipse 35% 45% at 15% 80%, rgba(47,143,255,.09) 0%, transparent 55%); }
-    .hero-left { position: relative; z-index: 1; }
+    .hero-left { position: relative; z-index: 1; padding-left: 48px; }
     .hero h1 { font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 800; line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px; }
     .hero > .hero-left > p { color: var(--muted); font-size: 1.05rem; line-height: 1.8; max-width: 500px; margin-bottom: 40px; }
     .hero-meta { display: flex; flex-direction: column; gap: 10px; }
