@@ -11,16 +11,26 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
+      /* dark (hero/stats/cta) */
       --bg:      #0e1018;
       --card:    #161929;
       --raised:  #1c2035;
-      --a1:      #00e5a0;
-      --a2:      #2f8fff;
-      --grad:    linear-gradient(135deg, #00e5a0, #2f8fff);
-      --white:   #eef0f8;
-      --muted:   #8890aa;
-      --dim:     #4a5070;
       --border:  #262a40;
+      /* light (vision onwards) */
+      --lbg:     #f6f7fc;
+      --lcard:   #ffffff;
+      --lraised: #eef0f8;
+      --lborder: #dde1f0;
+      --ltext:   #0a0c14;
+      --lmuted:  #5a6275;
+      --ldim:    #9aa0b8;
+      /* shared */
+      --a1:  #00e5a0;
+      --a2:  #2f8fff;
+      --grad: linear-gradient(135deg, #00e5a0, #2f8fff);
+      --white: #eef0f8;
+      --muted: #8890aa;
+      --dim:   #4a5070;
     }
 
     html { scroll-behavior: smooth; }
@@ -28,13 +38,11 @@
     h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
     .g { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-    /* shared icon box */
     .ico {
       width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, rgba(0,229,160,.14), rgba(47,143,255,.08));
-      border: 1px solid rgba(0,229,160,.22);
-      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(0,229,160,.13), rgba(47,143,255,.08));
+      border: 1px solid rgba(0,229,160,.22); margin-bottom: 16px;
     }
     .ico svg { width: 22px; height: 22px; }
     .ico-sm {
@@ -45,17 +53,34 @@
     }
     .ico-sm svg { width: 17px; height: 17px; }
 
-    /* NAV */
+    /* light-section icon variant */
+    .l-ico {
+      width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgba(0,229,160,.1), rgba(47,143,255,.07));
+      border: 1px solid rgba(0,229,160,.25); margin-bottom: 16px;
+    }
+    .l-ico svg { width: 22px; height: 22px; }
+    .l-ico-sm {
+      width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgba(0,229,160,.1), rgba(47,143,255,.06));
+      border: 1px solid rgba(0,229,160,.22);
+    }
+    .l-ico-sm svg { width: 17px; height: 17px; }
+
+    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       height: 62px; display: flex; align-items: center; justify-content: space-between;
       padding: 0 48px;
-      background: rgba(14,16,24,.82); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      background: rgba(14,16,24,.88); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--border);
     }
-    .brand { font-family: 'Space Grotesk', sans-serif; font-size: .85rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
-    .brand .sep { color: var(--dim); }
-    .brand .sub { color: var(--muted); font-weight: 500; letter-spacing: .5px; font-size: .8rem; text-transform: none; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
+    .nav-logo img { height: 22px; width: auto; display: block; }
+    .nav-logo .sep { color: var(--dim); font-size: .85rem; }
+    .nav-logo .sub { color: var(--muted); font-size: .8rem; font-weight: 500; font-family: 'Space Grotesk', sans-serif; }
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: .8rem; font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: var(--a1); }
@@ -75,89 +100,81 @@
         radial-gradient(ellipse 55% 65% at 80% 50%, rgba(0,229,160,.12) 0%, transparent 60%),
         radial-gradient(ellipse 35% 45% at 15% 80%, rgba(47,143,255,.09) 0%, transparent 55%);
     }
-    .hero-left { position: relative; z-index: 1; }
-    .hero-chip {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(0,229,160,.09); border: 1px solid rgba(0,229,160,.25);
-      border-radius: 50px; padding: 7px 18px; margin-bottom: 32px;
-      font-size: .72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--a1);
+
+    /* decorative quote marks in hero */
+    .hero-quotes {
+      position: absolute; top: 80px; left: 60px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16rem; font-weight: 800; line-height: 1;
+      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      opacity: .07; user-select: none; pointer-events: none; letter-spacing: -10px;
     }
-    .hero-chip .dot { width: 7px; height: 7px; background: var(--a1); border-radius: 50%; box-shadow: 0 0 8px var(--a1); animation: blink 2s ease-in-out infinite; }
-    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.2;} }
+
+    .hero-left { position: relative; z-index: 1; }
     .hero h1 {
       font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 800; line-height: 1.05; letter-spacing: -2px;
       margin-bottom: 24px;
     }
-    .hero > .hero-left > p { color: var(--muted); font-size: 1.05rem; line-height: 1.8; max-width: 460px; margin-bottom: 40px; }
+    .hero > .hero-left > p {
+      color: var(--muted); font-size: 1.05rem; line-height: 1.8;
+      max-width: 500px; margin-bottom: 40px;
+    }
     .hero-meta { display: flex; flex-direction: column; gap: 10px; }
     .meta-row { display: flex; align-items: center; gap: 10px; font-size: .82rem; }
     .meta-row .lbl { color: var(--muted); }
     .meta-row .val { color: var(--white); font-weight: 600; }
     .meta-dot { width: 4px; height: 4px; background: var(--dim); border-radius: 50%; }
 
-    /* Phone */
-    .hero-right { display: flex; justify-content: center; align-items: center; position: relative; z-index: 1; }
-    .phone-wrap { position: relative; }
+    /* Hero right: phone + insights panel side by side */
+    .hero-right { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; }
+    .phone-scene { display: flex; gap: 20px; align-items: flex-start; }
+
     .phone {
-      width: 278px; height: 578px; background: #0f1220;
-      border-radius: 44px; border: 9px solid #262a3e;
-      box-shadow: 0 0 0 1px rgba(255,255,255,.04), 0 60px 120px rgba(0,0,0,.55), 0 0 80px rgba(0,229,160,.14);
+      width: 260px; height: 540px; background: #0f1220; flex-shrink: 0;
+      border-radius: 42px; border: 9px solid #262a3e;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.04), 0 50px 100px rgba(0,0,0,.55), 0 0 70px rgba(0,229,160,.12);
       overflow: hidden; position: relative;
     }
-    .phone::before { content: ''; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 78px; height: 5px; background: #262a3e; border-radius: 3px; z-index: 10; }
-    .app-bar { background: linear-gradient(150deg, #131d2e, #0d1320); padding: 26px 16px 14px; border-bottom: 1px solid rgba(0,229,160,.12); }
-    .app-bar-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-    .app-logo { font-family: 'Space Grotesk',sans-serif; font-size: .68rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .app-notif { width: 26px; height: 26px; background: rgba(0,229,160,.1); border: 1px solid rgba(0,229,160,.2); border-radius: 50%; }
-    .app-greeting { font-size: .65rem; color: rgba(238,240,248,.35); margin-bottom: 1px; }
-    .app-name { font-family: 'Space Grotesk',sans-serif; font-size: .95rem; font-weight: 700; }
-    .app-hero-card { margin: 12px 12px 0; background: linear-gradient(135deg, rgba(0,229,160,.14), rgba(47,143,255,.09)); border: 1px solid rgba(0,229,160,.2); border-radius: 14px; padding: 13px 15px; }
-    .app-hero-label { font-size: .56rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--a1); margin-bottom: 4px; }
-    .app-hero-title { font-family: 'Space Grotesk',sans-serif; font-size: .88rem; font-weight: 700; margin-bottom: 9px; }
-    .app-hero-meta { display: flex; gap: 6px; }
-    .app-tag { font-size: .57rem; font-weight: 600; background: rgba(0,229,160,.08); border: 1px solid rgba(0,229,160,.15); color: var(--a1); padding: 3px 8px; border-radius: 50px; }
-    .app-section { padding: 11px 12px 0; }
-    .app-section-head { font-size: .58rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
-    .app-row { display: flex; gap: 7px; margin-bottom: 7px; }
-    .app-mini-card { flex: 1; background: rgba(22,25,41,.8); border: 1px solid var(--border); border-radius: 9px; padding: 9px; }
-    .app-mini-icon { width: 20px; height: 20px; border-radius: 5px; background: linear-gradient(135deg, rgba(0,229,160,.2), rgba(47,143,255,.1)); margin-bottom: 5px; }
-    .app-mini-title { font-size: .58rem; font-weight: 700; margin-bottom: 1px; }
-    .app-mini-sub { font-size: .52rem; color: var(--muted); }
-    .app-chat-preview { margin: 8px 12px 0; background: rgba(12,15,28,.7); border: 1px solid var(--border); border-radius: 11px; padding: 9px 11px; }
-    .app-chat-label { font-size: .55rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
-    .app-bubble { font-size: .58rem; color: rgba(238,240,248,.55); line-height: 1.4; background: rgba(22,25,41,.6); border-radius: 7px; padding: 6px 9px; margin-bottom: 5px; }
+    .phone::before { content: ''; position: absolute; top: 11px; left: 50%; transform: translateX(-50%); width: 72px; height: 4px; background: #262a3e; border-radius: 2px; z-index: 10; }
+    .app-bar { background: linear-gradient(150deg, #131d2e, #0d1320); padding: 24px 14px 12px; border-bottom: 1px solid rgba(0,229,160,.12); }
+    .app-bar-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px; }
+    .app-logo { font-family: 'Space Grotesk',sans-serif; font-size: .65rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .app-notif { width: 24px; height: 24px; background: rgba(0,229,160,.1); border: 1px solid rgba(0,229,160,.2); border-radius: 50%; }
+    .app-greeting { font-size: .6rem; color: rgba(238,240,248,.35); margin-bottom: 1px; }
+    .app-name { font-family: 'Space Grotesk',sans-serif; font-size: .9rem; font-weight: 700; }
+    .app-hero-card { margin: 11px 11px 0; background: linear-gradient(135deg, rgba(0,229,160,.14), rgba(47,143,255,.09)); border: 1px solid rgba(0,229,160,.2); border-radius: 12px; padding: 11px 13px; }
+    .app-hero-label { font-size: .53rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--a1); margin-bottom: 3px; }
+    .app-hero-title { font-family: 'Space Grotesk',sans-serif; font-size: .84rem; font-weight: 700; margin-bottom: 8px; }
+    .app-hero-meta { display: flex; gap: 5px; }
+    .app-tag { font-size: .54rem; font-weight: 600; background: rgba(0,229,160,.08); border: 1px solid rgba(0,229,160,.15); color: var(--a1); padding: 2px 7px; border-radius: 50px; }
+    .app-section { padding: 10px 11px 0; }
+    .app-section-head { font-size: .56rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .app-row { display: flex; gap: 6px; margin-bottom: 6px; }
+    .app-mini-card { flex: 1; background: rgba(22,25,41,.8); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .app-mini-thumb { width: 100%; height: 50px; object-fit: cover; object-position: center top; display: block; }
+    .app-mini-info { padding: 5px 7px 6px; }
+    .app-mini-title { font-size: .55rem; font-weight: 700; margin-bottom: 1px; }
+    .app-mini-sub { font-size: .5rem; color: var(--muted); }
+    .app-chat-preview { margin: 7px 11px 0; background: rgba(12,15,28,.7); border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; }
+    .app-chat-label { font-size: .52rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .app-bubble { font-size: .56rem; color: rgba(238,240,248,.55); line-height: 1.4; background: rgba(22,25,41,.6); border-radius: 7px; padding: 5px 8px; margin-bottom: 4px; }
     .app-bubble.a { background: linear-gradient(135deg, rgba(0,229,160,.1), rgba(47,143,255,.06)); color: rgba(238,240,248,.85); }
-    .phone-2 {
-      position: absolute; right: -72px; top: 60px;
-      width: 196px; height: 390px; background: #0f1220;
-      border-radius: 32px; border: 7px solid #262a3e;
-      box-shadow: 0 40px 80px rgba(0,0,0,.5), 0 0 40px rgba(47,143,255,.1);
-      overflow: hidden; transform: rotate(8deg); opacity: .72;
-    }
-    .phone-2-screen { width: 100%; height: 100%; background: linear-gradient(160deg, #111e30 0%, #0c1020 100%); padding: 18px 11px; }
-    .ph2-bar { height: 5px; border-radius: 3px; background: var(--grad); margin-bottom: 12px; }
-    .ph2-label { font-size: .52rem; color: var(--muted); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 7px; }
-    .ph2-chart { display: flex; align-items: flex-end; gap: 5px; height: 72px; margin-bottom: 11px; }
-    .ph2-bar-item { flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(to top, var(--a1), var(--a2)); opacity: .75; }
-    .ph2-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--border); }
-    .ph2-row span:first-child { font-size: .55rem; color: var(--muted); }
-    .ph2-row span:last-child { font-size: .58rem; font-weight: 700; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-    /* ── CAPABILITY STRIP ── */
-    .cap-strip {
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      background: var(--card); padding: 18px 48px;
-      display: flex; align-items: center; gap: 10px; overflow-x: auto; scrollbar-width: none;
+    /* Insights panel beside phone */
+    .insights-panel {
+      width: 200px; flex-shrink: 0;
+      background: rgba(22,25,41,.9);
+      border: 1px solid var(--border); border-radius: 18px;
+      padding: 20px 18px; margin-top: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
     }
-    .cap-strip::-webkit-scrollbar { display: none; }
-    .cap-pill {
-      display: flex; align-items: center; gap: 7px; white-space: nowrap;
-      background: var(--raised); border: 1px solid var(--border);
-      border-radius: 50px; padding: 7px 16px; flex-shrink: 0;
-    }
-    .cap-pill .dot { width: 6px; height: 6px; border-radius: 50%; }
-    .cap-pill span { font-size: .78rem; font-weight: 500; color: var(--muted); }
-    .cap-sep { width: 1px; height: 22px; background: var(--border); flex-shrink: 0; }
+    .ip-title { font-family: 'Space Grotesk',sans-serif; font-size: .65rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 14px; }
+    .ip-chart { display: flex; align-items: flex-end; gap: 5px; height: 64px; margin-bottom: 14px; }
+    .ip-bar { flex: 1; border-radius: 3px 3px 0 0; background: var(--grad); }
+    .ip-stat { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid rgba(38,42,64,.8); }
+    .ip-stat:last-child { border-bottom: none; }
+    .ip-stat .k { font-size: .68rem; color: var(--muted); }
+    .ip-stat .v { font-size: .72rem; font-weight: 700; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
     /* ── STATS ── */
     .stats-section { background: var(--card); padding: 72px 48px; }
@@ -168,8 +185,8 @@
     }
     .stat-box {
       padding: 44px 36px; border-right: 1px solid var(--border);
-      position: relative; overflow: hidden;
       background: linear-gradient(160deg, var(--card), var(--raised));
+      position: relative; overflow: hidden;
     }
     .stat-box:last-child { border-right: none; }
     .stat-box::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--grad); }
@@ -177,212 +194,244 @@
     .stat-n { font-family: 'Space Grotesk',sans-serif; font-size: 3.2rem; font-weight: 800; line-height: 1; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
     .stat-l { color: var(--muted); font-size: .83rem; line-height: 1.5; }
 
-    /* ── SHARED SECTION ── */
+    /* ══════════════════════════════
+       LIGHT SECTIONS (vision → next steps)
+    ══════════════════════════════ */
+    .light { background: var(--lbg); color: var(--ltext); }
+    .light .eyebrow { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .light .sh { color: var(--ltext); }
+    .light .sp { color: var(--lmuted); }
+
     .wrap { max-width: 1160px; margin: 0 auto; padding: 0 48px; }
     .eyebrow { font-size: .68rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 14px; }
     .sh { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px; }
     .sp { color: var(--muted); font-size: 1rem; line-height: 1.8; max-width: 600px; margin-bottom: 56px; }
 
     /* ── VISION ── */
-    .vision-section { padding: 120px 0; }
+    .vision-section { background: var(--lbg); padding: 120px 0; }
+    .vision-section .wrap-head { max-width: 1160px; margin: 0 auto; padding: 0 48px; text-align: center; margin-bottom: 72px; }
+    .vision-section .sh { color: var(--ltext); }
+
+    /* pull quote */
     .vision-quote-block {
-      background: linear-gradient(150deg, rgba(0,229,160,.07) 0%, rgba(47,143,255,.04) 60%, rgba(0,229,160,.05) 100%);
-      border-top: 1px solid rgba(0,229,160,.15);
-      border-bottom: 1px solid rgba(47,143,255,.1);
-      padding: 80px 48px; margin-bottom: 72px;
+      background: linear-gradient(150deg, rgba(0,229,160,.08) 0%, rgba(47,143,255,.05) 100%);
+      border-top: 1px solid rgba(0,229,160,.2);
+      border-bottom: 1px solid rgba(47,143,255,.12);
+      padding: 72px 48px; margin-bottom: 64px;
       position: relative; overflow: hidden;
     }
     .vision-quote-block::before {
-      content: '"'; position: absolute; top: -50px; left: 28px;
-      font-family: 'Space Grotesk',sans-serif; font-size: 18rem; font-weight: 800; line-height: 1;
+      content: '"'; position: absolute; top: -30px; left: 28px;
+      font-family: 'Space Grotesk',sans-serif; font-size: 16rem; font-weight: 800; line-height: 1;
       background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      opacity: .08; user-select: none; pointer-events: none;
+      opacity: .12; user-select: none; pointer-events: none;
     }
-    .vision-quote { max-width: 1160px; margin: 0 auto; font-family: 'Space Grotesk',sans-serif; font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.35; letter-spacing: -.3px; }
-    .vision-cols { max-width: 1160px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .vc {
-      background: var(--card); border: 1px solid var(--border); border-radius: 18px;
-      padding: 36px 36px 36px;
-      position: relative; overflow: hidden;
-      transition: border-color .3s;
+    .vision-quote {
+      max-width: 1160px; margin: 0 auto;
+      font-family: 'Space Grotesk',sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.35; letter-spacing: -.3px;
+      color: var(--ltext);
     }
-    .vc:hover { border-color: rgba(0,229,160,.28); }
-    .vc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--grad); }
-    .vc-eye { font-size: .64rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 14px; }
-    .vc p { color: var(--muted); font-size: .97rem; line-height: 1.85; }
-    .vc p strong { color: var(--white); font-weight: 600; }
 
-    /* ── BENTO GRID ── */
-    .platform-section { padding: 80px 0 120px; }
+    /* vision cards: foundation=outlined, opportunity=filled */
+    .vision-cols { max-width: 1160px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .vc-outlined {
+      background: var(--lcard); border: 2px solid transparent;
+      background-clip: padding-box;
+      border-radius: 18px; padding: 36px;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    /* gradient border trick */
+    .vc-outlined::before {
+      content: ''; position: absolute; inset: -2px; border-radius: 20px; z-index: -1;
+      background: var(--grad);
+    }
+    .vc-outlined .vc-eye { font-size: .64rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 14px; }
+    .vc-outlined p { color: var(--lmuted); font-size: .97rem; line-height: 1.85; }
+    .vc-outlined p strong { color: var(--ltext); font-weight: 600; }
+
+    .vc-filled {
+      background: linear-gradient(135deg, #0d1a2e, #0f2040);
+      border-radius: 18px; padding: 36px;
+      position: relative; overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,229,160,.1);
+    }
+    .vc-filled::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad); }
+    .vc-filled .vc-eye { font-size: .64rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 14px; }
+    .vc-filled p { color: rgba(238,240,248,.7); font-size: .97rem; line-height: 1.85; }
+    .vc-filled p strong { color: var(--white); font-weight: 600; }
+
+    /* ── BENTO PLATFORM (light) ── */
+    .platform-section { background: var(--lbg); padding: 0 0 100px; }
     .bento {
       max-width: 1160px; margin: 0 auto; padding: 0 48px;
       display: grid;
-      grid-template-columns: 1.1fr 1fr 0.9fr;
-      grid-template-rows: auto auto;
+      grid-template-columns: 1.2fr 1fr 1fr;
       gap: 16px;
     }
-    .b-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 20px; overflow: hidden;
-      transition: border-color .3s, transform .25s;
-    }
-    .b-card:hover { border-color: rgba(0,229,160,.28); transform: translateY(-2px); }
-    .b-inner { padding: 32px; }
-    .b-eye { font-size: .62rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; margin-top: 14px; }
-    .b-title { font-family: 'Space Grotesk',sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 9px; }
-    .b-desc { color: var(--muted); font-size: .88rem; line-height: 1.7; }
-    .b-divider { height: 1px; background: var(--border); margin: 0; }
 
-    /* app card */
-    .b-app { grid-column: 1; grid-row: 1 / 3; display: flex; flex-direction: column; }
-    .b-app .b-inner { flex-shrink: 0; }
+    .b-card {
+      background: var(--lcard); border: 1px solid var(--lborder);
+      border-radius: 20px; overflow: hidden;
+      transition: box-shadow .3s, transform .25s;
+    }
+    .b-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .b-inner { padding: 28px 28px 24px; }
+    .b-eye { font-size: .62rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; margin-top: 12px; }
+    .b-title { font-family: 'Space Grotesk',sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--ltext); }
+    .b-desc { color: var(--lmuted); font-size: .87rem; line-height: 1.7; }
+    .b-divider { height: 1px; background: var(--lborder); }
+
+    /* App card — horizontal, row 1 full width */
+    .b-app { grid-column: 1 / 4; display: grid; grid-template-columns: 1fr auto; gap: 0; align-items: stretch; }
+    .b-app .b-inner { display: flex; flex-direction: column; justify-content: center; }
+    .b-app .b-desc { max-width: 460px; }
     .app-preview-strip {
-      flex: 1; background: linear-gradient(160deg, #111c2e 0%, #0a0e1a 100%);
+      background: linear-gradient(160deg, #111c2e 0%, #0a0e1a 100%);
       display: flex; justify-content: center; align-items: flex-end;
-      padding: 32px 24px 0; min-height: 280px;
+      padding: 28px 32px 0; width: 320px;
       position: relative; overflow: hidden;
     }
     .app-preview-strip::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(0,229,160,.12) 0%, transparent 65%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,229,160,.14) 0%, transparent 65%);
     }
     .mini-phone {
-      width: 156px; height: 290px; background: #0f1422; border-radius: 26px; border: 5px solid #262a3e;
-      box-shadow: 0 0 60px rgba(0,229,160,.18), 0 30px 60px rgba(0,0,0,.5);
+      width: 150px; height: 260px; background: #0f1422; border-radius: 24px; border: 5px solid #262a3e;
+      box-shadow: 0 0 50px rgba(0,229,160,.18), 0 24px 50px rgba(0,0,0,.5);
       overflow: hidden; position: relative; z-index: 1;
     }
-    .mini-phone::before { content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 46px; height: 3px; background: #262a3e; border-radius: 2px; z-index: 10; }
-    .mini-screen { width: 100%; height: 100%; padding: 20px 8px 8px; display: flex; flex-direction: column; gap: 7px; }
-    .ms-bar { height: 3px; border-radius: 2px; background: var(--grad); margin-bottom: 4px; }
-    .ms-greeting { font-size: .42rem; color: rgba(238,240,248,.3); margin-bottom: 1px; }
-    .ms-name { font-size: .58rem; font-weight: 800; font-family: 'Space Grotesk',sans-serif; margin-bottom: 7px; }
-    .ms-card { background: linear-gradient(135deg, rgba(0,229,160,.12), rgba(47,143,255,.08)); border: 1px solid rgba(0,229,160,.18); border-radius: 8px; padding: 7px; }
-    .ms-card-title { font-size: .48rem; font-weight: 700; margin-bottom: 1px; }
-    .ms-card-sub { font-size: .42rem; color: var(--muted); }
+    .mini-phone::before { content: ''; position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 44px; height: 3px; background: #262a3e; border-radius: 2px; z-index: 10; }
+    .mini-screen { width: 100%; height: 100%; padding: 18px 7px 7px; display: flex; flex-direction: column; gap: 6px; }
+    .ms-bar { height: 3px; border-radius: 2px; background: var(--grad); margin-bottom: 3px; }
+    .ms-greeting { font-size: .4rem; color: rgba(238,240,248,.3); margin-bottom: 1px; }
+    .ms-name { font-size: .55rem; font-weight: 800; font-family: 'Space Grotesk',sans-serif; margin-bottom: 6px; }
+    .ms-card { background: linear-gradient(135deg, rgba(0,229,160,.12), rgba(47,143,255,.08)); border: 1px solid rgba(0,229,160,.18); border-radius: 7px; padding: 6px; }
+    .ms-card-title { font-size: .46rem; font-weight: 700; margin-bottom: 1px; }
+    .ms-card-sub { font-size: .4rem; color: var(--muted); }
     .ms-row { display: flex; gap: 4px; }
-    .ms-mini { flex: 1; background: var(--raised); border: 1px solid var(--border); border-radius: 5px; padding: 5px; }
-    .ms-mini-icon { width: 13px; height: 13px; border-radius: 3px; background: linear-gradient(135deg, rgba(0,229,160,.2), rgba(47,143,255,.1)); margin-bottom: 3px; }
-    .ms-mini-t { font-size: .4rem; font-weight: 700; }
-    .ms-mini-s { font-size: .36rem; color: var(--muted); }
-    .btags { display: flex; flex-wrap: wrap; gap: 6px; padding: 18px 28px 22px; border-top: 1px solid var(--border); }
-    .btag { font-size: .7rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; background: rgba(0,229,160,.07); border: 1px solid rgba(0,229,160,.16); color: var(--a1); }
+    .ms-mini { flex: 1; background: var(--raised); border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+    .ms-mini-thumb { width: 100%; height: 30px; object-fit: cover; object-position: center 20%; display: block; }
+    .ms-mini-info { padding: 3px 4px 4px; }
+    .ms-mini-t { font-size: .38rem; font-weight: 700; }
+    .ms-mini-s { font-size: .34rem; color: var(--muted); }
+    .btags { display: flex; flex-wrap: wrap; gap: 6px; padding: 16px 28px 20px; border-top: 1px solid var(--lborder); }
+    .btag { font-size: .7rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; background: rgba(0,229,160,.07); border: 1px solid rgba(0,229,160,.2); color: #008a5e; }
 
-    /* ai card */
-    .b-ai { grid-column: 2; grid-row: 1; }
-    .ai-chat-wrap { background: linear-gradient(160deg, #0f1628, #090d18); border-top: 1px solid var(--border); padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; }
-    .ac-lbl { font-size: .58rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
-    .ac-bubble { border-radius: 12px; padding: 10px 14px; font-size: .78rem; line-height: 1.55; }
-    .ac-bubble.user { background: rgba(47,143,255,.12); border: 1px solid rgba(47,143,255,.2); color: var(--white); }
-    .ac-bubble.ai { background: rgba(0,229,160,.08); border: 1px solid rgba(0,229,160,.15); color: rgba(238,240,248,.85); }
-    .ac-avatar-row { display: flex; align-items: center; gap: 8px; }
-    .ac-av { width: 24px; height: 24px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: .55rem; font-weight: 800; color: #0e1018; flex-shrink: 0; }
+    /* AI card */
+    .b-ai { grid-column: 1; }
+    .ai-chat-wrap { background: var(--lraised); border-top: 1px solid var(--lborder); padding: 18px 20px; display: flex; flex-direction: column; gap: 9px; }
+    .ac-lbl { font-size: .56rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ldim); margin-bottom: 2px; }
+    .ac-bubble { border-radius: 11px; padding: 9px 13px; font-size: .77rem; line-height: 1.55; }
+    .ac-bubble.user { background: rgba(47,143,255,.1); border: 1px solid rgba(47,143,255,.2); color: var(--ltext); }
+    .ac-bubble.ai { background: rgba(0,229,160,.07); border: 1px solid rgba(0,229,160,.18); color: var(--lmuted); }
+    .ac-avatar-row { display: flex; align-items: center; gap: 7px; }
+    .ac-av { width: 22px; height: 22px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: .52rem; font-weight: 800; color: #0e1018; flex-shrink: 0; }
 
-    /* analytics card */
-    .b-analytics { grid-column: 3; grid-row: 1; }
-    .chart-wrap { background: linear-gradient(160deg, #0f1628, #090d18); border-top: 1px solid var(--border); padding: 22px 22px; }
-    .chart-lbl { font-size: .6rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-    .bar-chart { display: flex; align-items: flex-end; gap: 7px; height: 88px; }
+    /* Analytics card */
+    .b-analytics { grid-column: 2; }
+    .chart-wrap { background: var(--lraised); border-top: 1px solid var(--lborder); padding: 20px; }
+    .chart-lbl { font-size: .6rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ldim); margin-bottom: 14px; }
+    .bar-chart { display: flex; align-items: flex-end; gap: 6px; height: 80px; }
     .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; }
-    .bar-fill { width: 100%; border-radius: 4px 4px 0 0; background: var(--grad); }
-    .bar-lbl { font-size: .54rem; color: var(--muted); text-align: center; }
-    .chart-callout { margin-top: 14px; background: rgba(0,229,160,.06); border: 1px solid rgba(0,229,160,.14); border-radius: 9px; padding: 10px 13px; font-size: .75rem; color: rgba(238,240,248,.7); line-height: 1.5; }
-    .chart-callout strong { color: var(--a1); }
+    .bar-fill { width: 100%; border-radius: 4px 4px 0 0; background: var(--grad); min-height: 4px; }
+    .bar-lbl { font-size: .55rem; color: var(--ldim); text-align: center; }
+    .chart-callout { margin-top: 12px; background: rgba(0,229,160,.06); border: 1px solid rgba(0,229,160,.18); border-radius: 9px; padding: 9px 12px; font-size: .74rem; color: var(--lmuted); line-height: 1.5; }
+    .chart-callout strong { color: #008a5e; }
 
-    /* experts card */
-    .b-experts { grid-column: 2; grid-row: 2; }
-    .experts-wrap { border-top: 1px solid var(--border); padding: 20px 22px; }
-    .expert-row { display: flex; gap: 12px; margin-bottom: 16px; }
-    .ea { display: flex; flex-direction: column; align-items: center; gap: 5px; flex: 1; }
-    .ea-circle {
-      width: 50px; height: 50px; border-radius: 50%;
-      background: var(--grad); display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk',sans-serif; font-size: .78rem; font-weight: 800; color: #0e1018;
-      box-shadow: 0 0 18px rgba(0,229,160,.2);
-    }
-    .ea-name { font-size: .62rem; font-weight: 600; color: var(--white); text-align: center; }
-    .ea-role { font-size: .56rem; color: var(--muted); text-align: center; }
-    .experts-note { font-size: .8rem; color: var(--muted); line-height: 1.65; }
+    /* Experts card */
+    .b-experts { grid-column: 3; }
+    .experts-wrap { border-top: 1px solid var(--lborder); padding: 18px 20px; }
+    .expert-row { display: flex; gap: 10px; margin-bottom: 14px; }
+    .ea { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
+    .ea-circle { width: 46px; height: 46px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk',sans-serif; font-size: .75rem; font-weight: 800; color: #0e1018; box-shadow: 0 0 16px rgba(0,229,160,.18); }
+    .ea-name { font-size: .6rem; font-weight: 600; color: var(--ltext); text-align: center; }
+    .ea-role { font-size: .55rem; color: var(--ldim); text-align: center; }
+    .experts-note { font-size: .8rem; color: var(--lmuted); line-height: 1.65; }
 
-    /* commerce card */
-    .b-commerce { grid-column: 3; grid-row: 2; }
-    .rev-wrap { border-top: 1px solid var(--border); padding: 20px 22px; display: flex; flex-direction: column; gap: 12px; }
+    /* Commerce card */
+    .b-commerce { grid-column: 1 / 4; }
+    .b-commerce .b-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+    .b-commerce .b-desc { max-width: 420px; }
+    .rev-wrap { display: flex; flex-direction: column; gap: 12px; }
     .rev-item { display: flex; flex-direction: column; gap: 5px; }
     .rev-label-row { display: flex; justify-content: space-between; }
-    .rev-name { font-size: .78rem; color: var(--muted); }
-    .rev-badge { font-size: .68rem; font-weight: 700; color: var(--a1); }
-    .rev-track { height: 6px; background: var(--raised); border-radius: 3px; overflow: hidden; }
-    .rev-fill { height: 100%; border-radius: 3px; background: var(--grad); }
+    .rev-name { font-size: .8rem; color: var(--lmuted); }
+    .rev-badge { font-size: .7rem; font-weight: 700; color: #008a5e; }
+    .rev-track { height: 7px; background: var(--lraised); border-radius: 4px; overflow: hidden; border: 1px solid var(--lborder); }
+    .rev-fill { height: 100%; border-radius: 4px; background: var(--grad); }
 
     /* ── THE LOOP ── */
     .loop-section {
-      background: linear-gradient(160deg, #131828 0%, var(--card) 50%, #131828 100%);
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, #0d1525, #0f1e35);
+      border-top: 1px solid rgba(0,229,160,.12); border-bottom: 1px solid rgba(0,229,160,.12);
       padding: 100px 48px;
     }
     .loop-inner { max-width: 1160px; margin: 0 auto; }
     .loop-diagram { display: flex; align-items: flex-start; gap: 0; margin-top: 64px; }
-    .loop-node { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; }
+    .loop-node { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 10px; }
     .loop-ico-wrap {
-      width: 68px; height: 68px; border-radius: 20px; margin-bottom: 18px;
+      width: 66px; height: 66px; border-radius: 18px; margin-bottom: 16px;
       background: linear-gradient(var(--card), var(--card)) padding-box, var(--grad) border-box;
       border: 2px solid transparent;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 28px rgba(0,229,160,.1);
+      box-shadow: 0 0 24px rgba(0,229,160,.12);
     }
     .loop-ico-wrap svg { width: 26px; height: 26px; }
-    .loop-node h4 { font-size: .88rem; font-weight: 700; margin-bottom: 6px; }
-    .loop-node p { font-size: .76rem; color: var(--muted); line-height: 1.5; max-width: 120px; }
-    .loop-arrow { flex-shrink: 0; width: 36px; padding-bottom: 70px; display: flex; align-items: center; }
+    .loop-node h4 { font-size: .86rem; font-weight: 700; margin-bottom: 5px; color: var(--white); }
+    .loop-node p { font-size: .74rem; color: var(--muted); line-height: 1.5; max-width: 110px; }
+    .loop-arrow { flex-shrink: 0; width: 36px; padding-bottom: 68px; display: flex; align-items: center; }
     .arrow-wrap { width: 100%; display: flex; align-items: center; }
     .arrow-line { flex: 1; height: 2px; background: linear-gradient(to right, var(--a1), var(--a2)); }
     .arrow-head { width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid var(--a2); }
-    .loop-return { height: 2px; background: linear-gradient(to left, rgba(0,229,160,.35), rgba(47,143,255,.35)); margin-top: 20px; border-radius: 1px; position: relative; }
-    .loop-return::before { content: ''; position: absolute; left: 0; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-right: 8px solid rgba(0,229,160,.45); }
-    .loop-return-label { text-align: center; margin-top: 10px; font-size: .68rem; color: var(--dim); letter-spacing: 1px; text-transform: uppercase; }
+    .loop-return { height: 2px; background: linear-gradient(to left, rgba(0,229,160,.4), rgba(47,143,255,.35)); margin-top: 20px; border-radius: 1px; position: relative; }
+    .loop-return::before { content: ''; position: absolute; left: 0; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-right: 8px solid rgba(0,229,160,.5); }
+    .loop-return-label { text-align: center; margin-top: 10px; font-size: .67rem; color: var(--dim); letter-spacing: 1px; text-transform: uppercase; }
 
-    /* ── APPROACH ── */
-    .approach-section { padding: 112px 0; }
+    /* ── APPROACH (light) ── */
+    .approach-section { background: var(--lbg); padding: 100px 0; }
     .approach-grid { max-width: 1160px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
     .a-card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+      background: var(--lcard); border: 1px solid var(--lborder); border-radius: 20px;
       padding: 36px; position: relative; overflow: hidden;
-      transition: border-color .3s, transform .25s;
+      transition: box-shadow .3s, transform .25s;
     }
-    .a-card:hover { border-color: rgba(0,229,160,.28); transform: translateY(-2px); }
+    .a-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.08); transform: translateY(-2px); }
     .a-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--grad); }
     .a-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
     .a-num { font-family: 'Space Grotesk',sans-serif; font-size: 1rem; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; flex-shrink: 0; }
-    .a-card h3 { font-size: 1.05rem; font-weight: 700; }
-    .a-card p { color: var(--muted); font-size: .92rem; line-height: 1.75; margin-bottom: 16px; }
-    .a-pill { display: inline-block; font-size: .75rem; font-weight: 700; background: rgba(0,229,160,.08); border: 1px solid rgba(0,229,160,.18); color: var(--a1); padding: 5px 14px; border-radius: 50px; }
+    .a-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--ltext); }
+    .a-card p { color: var(--lmuted); font-size: .92rem; line-height: 1.75; margin-bottom: 16px; }
+    .a-pill { display: inline-block; font-size: .75rem; font-weight: 700; background: rgba(0,229,160,.07); border: 1px solid rgba(0,229,160,.22); color: #008a5e; padding: 5px 14px; border-radius: 50px; }
 
-    /* ── NEXT STEPS ── */
-    .steps-section { background: var(--card); border-top: 1px solid var(--border); padding: 100px 48px; }
-    .steps-inner { max-width: 800px; margin: 0 auto; }
+    /* ── NEXT STEPS (light) ── */
+    .steps-section { background: var(--lraised); border-top: 1px solid var(--lborder); padding: 100px 48px; }
+    .steps-inner { max-width: 760px; margin: 0 auto; }
+    .steps-section .sh { color: var(--ltext); }
     .vtl { display: flex; flex-direction: column; }
-    .vtl-row { display: grid; grid-template-columns: 72px 1fr; gap: 0; }
+    .vtl-row { display: grid; grid-template-columns: 72px 1fr; }
     .vtl-left { display: flex; flex-direction: column; align-items: center; }
-    .vtl-dot { width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0; background: var(--grad); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk',sans-serif; font-size: 1.1rem; font-weight: 800; color: #0e1018; box-shadow: 0 0 24px rgba(0,229,160,.22); }
+    .vtl-dot { width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0; background: var(--grad); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk',sans-serif; font-size: 1.1rem; font-weight: 800; color: #0e1018; box-shadow: 0 0 20px rgba(0,229,160,.22); }
     .vtl-connector { width: 2px; flex: 1; background: linear-gradient(to bottom, var(--a1), var(--a2)); margin: 7px 0; }
     .vtl-row:last-child .vtl-connector { display: none; }
-    .vtl-body { padding: 6px 0 52px 26px; }
-    .vtl-body h4 { font-size: 1.08rem; font-weight: 700; margin-bottom: 9px; }
-    .vtl-body p { color: var(--muted); font-size: .93rem; line-height: 1.75; }
+    .vtl-body { padding: 4px 0 48px 24px; }
+    .vtl-body h4 { font-size: 1.05rem; font-weight: 700; color: var(--ltext); margin-bottom: 8px; }
+    .vtl-body p { color: var(--lmuted); font-size: .92rem; line-height: 1.75; }
 
-    /* ── CTA ── */
-    .cta-section { position: relative; overflow: hidden; padding: 140px 48px; text-align: center; }
-    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(0,229,160,.11) 0%, transparent 65%), radial-gradient(ellipse 35% 35% at 80% 20%, rgba(47,143,255,.08) 0%, transparent 55%); }
+    /* ── CTA (dark) ── */
+    .cta-section { background: var(--bg); position: relative; overflow: hidden; padding: 140px 48px; text-align: center; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(0,229,160,.1) 0%, transparent 65%), radial-gradient(ellipse 35% 35% at 80% 20%, rgba(47,143,255,.07) 0%, transparent 55%); }
     .cta-section .wrap { position: relative; z-index: 1; }
-    .cta-eyebrow { font-size: .68rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 20px; }
-    .cta-section h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.12; margin-bottom: 18px; }
-    .cta-section > div > p { color: var(--muted); font-size: 1.05rem; max-width: 580px; margin: 0 auto 48px; line-height: 1.8; }
+    .cta-section h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.12; margin-bottom: 18px; color: var(--white); }
+    .cta-section > div > div > p { color: var(--muted); font-size: 1.05rem; max-width: 580px; margin: 0 auto 48px; line-height: 1.8; }
     .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .btn-p { display: inline-flex; align-items: center; gap: 10px; background: var(--grad); color: #0e1018; font-family: 'Space Grotesk',sans-serif; font-weight: 700; font-size: .92rem; padding: 15px 38px; border-radius: 50px; text-decoration: none; transition: opacity .2s, transform .2s; }
     .btn-p:hover { opacity: .88; transform: translateY(-2px); }
     .btn-g { display: inline-flex; align-items: center; gap: 10px; color: var(--white); font-family: 'Space Grotesk',sans-serif; font-weight: 600; font-size: .92rem; padding: 14px 38px; border-radius: 50px; text-decoration: none; border: 1px solid var(--border); transition: border-color .2s, color .2s, transform .2s; }
     .btn-g:hover { border-color: var(--a1); color: var(--a1); transform: translateY(-2px); }
 
-    footer { text-align: center; padding: 30px; border-top: 1px solid var(--border); color: var(--dim); font-size: .75rem; letter-spacing: .5px; }
+    footer { background: var(--bg); text-align: center; padding: 30px; border-top: 1px solid var(--border); color: var(--dim); font-size: .75rem; letter-spacing: .5px; }
     footer a { color: var(--muted); text-decoration: none; }
     footer a:hover { color: var(--a1); }
 
@@ -397,31 +446,31 @@
       .hero{grid-template-columns:1fr; padding:100px 32px 60px;}
       .hero-right{display:none;}
       .bento{grid-template-columns:1fr 1fr; padding:0 32px;}
-      .b-app{grid-column:1/3; grid-row:auto;}
-      .b-ai,.b-analytics,.b-experts,.b-commerce{grid-column:auto; grid-row:auto;}
+      .b-app{grid-column:1/3; grid-template-columns:1fr;}
+      .app-preview-strip{width:100%; height:200px;}
+      .b-ai,.b-analytics,.b-experts{grid-column:auto;}
+      .b-commerce{grid-column:1/3;}
+      .b-commerce .b-inner{grid-template-columns:1fr;}
       .approach-grid{grid-template-columns:1fr; padding:0 32px;}
       .vision-cols{grid-template-columns:1fr; padding:0 32px;}
-      .loop-diagram{flex-wrap:wrap; gap:32px; justify-content:center;}
-      .loop-arrow{display:none;}
-      .loop-return{display:none;}
-      .loop-return-label{display:none;}
-      .loop-node{min-width:140px;}
+      .loop-diagram{flex-wrap:wrap; gap:28px; justify-content:center;}
+      .loop-arrow,.loop-return,.loop-return-label{display:none;}
+      .loop-node{min-width:130px;}
       .wrap{padding:0 32px;}
-      .stats-section{padding:56px 32px;}
+      .stats-grid{grid-template-columns:1fr 1fr;}
+      .stat-box{border-right:none;border-bottom:1px solid var(--border);}
+      .stat-box:nth-child(odd){border-right:1px solid var(--border);}
     }
     @media(max-width:640px){
       .hero{padding:90px 20px 60px;}
       .bento{grid-template-columns:1fr; padding:0 20px;}
-      .b-app{grid-column:1;}
-      .stats-grid{grid-template-columns:1fr 1fr;}
-      .stat-box{border-right:none; border-bottom:1px solid var(--border); padding:32px 24px;}
-      .stat-box:nth-child(odd){border-right:1px solid var(--border);}
-      .stat-box:nth-child(3),.stat-box:nth-child(4){border-bottom:none;}
-      .approach-grid{padding:0 20px;}
-      .vision-cols{padding:0 20px;}
-      .vision-quote-block{padding:56px 24px;}
-      .cap-strip{padding:18px 20px;}
+      .b-app,.b-commerce{grid-column:1;}
+      .b-commerce .b-inner{grid-template-columns:1fr;}
+      .approach-grid,.vision-cols{padding:0 20px; grid-template-columns:1fr;}
+      .vision-quote-block{padding:52px 24px;}
       .steps-section,.loop-section,.cta-section{padding:80px 24px;}
+      .stats-section{padding:56px 20px;}
+      .stats-grid{grid-template-columns:1fr 1fr; border-radius:16px;}
     }
   </style>
 </head>
@@ -429,8 +478,8 @@
 
 <!-- NAV -->
 <nav>
-  <div class="brand">
-    <span><span class="g">fig1</span>.ai</span>
+  <div class="nav-logo">
+    <img src="fig1-logo.svg" alt="fig1.ai">
     <span class="sep">|</span>
     <span class="sub">Hamilton House</span>
   </div>
@@ -445,17 +494,18 @@
 
 <!-- HERO -->
 <div class="hero">
+  <div class="hero-quotes">"</div>
   <div class="hero-left">
-    <h1 class="fi d1"><span class="g">Hamilton House</span><br>The Experience<br>Layer</h1>
-    <p class="fi d2">One platform that brings Laird, Gabby, and the entire Hamilton House world together — web, mobile, AI, community, and commerce, evolving in real time.</p>
-    <div class="hero-meta fi d3">
+    <h1 class="fi"><span class="g">Hamilton House</span><br>The Experience Layer</h1>
+    <p class="fi d1">One platform that brings Laird, Gabby, and the entire Hamilton House world together — web, mobile, AI, community, and commerce, evolving in real time.</p>
+    <div class="hero-meta fi d2">
       <div class="meta-row"><span class="lbl">Prepared by</span><span class="meta-dot"></span><span class="val">Jim &amp; fig1.ai</span></div>
       <div class="meta-row"><span class="lbl">For</span><span class="meta-dot"></span><span class="val">Greg &amp; Hamilton House</span></div>
       <div class="meta-row"><span class="lbl">Date</span><span class="meta-dot"></span><span class="val">September 2026</span></div>
     </div>
   </div>
   <div class="hero-right fi d2">
-    <div class="phone-wrap">
+    <div class="phone-scene">
       <div class="phone">
         <div class="app-bar">
           <div class="app-bar-top"><div class="app-logo">Hamilton House</div><div class="app-notif"></div></div>
@@ -465,130 +515,94 @@
         <div class="app-hero-card">
           <div class="app-hero-label">Today's Practice</div>
           <div class="app-hero-title">Morning Breathwork + HIGHX</div>
-          <div class="app-hero-meta"><span class="app-tag">57 min</span><span class="app-tag">Laird</span><span class="app-tag">Intermediate</span></div>
+          <div class="app-hero-meta"><span class="app-tag">57 min</span><span class="app-tag">Laird</span></div>
         </div>
         <div class="app-section">
           <div class="app-section-head">Your World</div>
           <div class="app-row">
-            <div class="app-mini-card"><div class="app-mini-icon"></div><div class="app-mini-title">Breathwork</div><div class="app-mini-sub">12 sessions</div></div>
-            <div class="app-mini-card"><div class="app-mini-icon"></div><div class="app-mini-title">Nutrition</div><div class="app-mini-sub">Gabby's plan</div></div>
-          </div>
-          <div class="app-row">
-            <div class="app-mini-card"><div class="app-mini-icon"></div><div class="app-mini-title">Recovery</div><div class="app-mini-sub">Kenny · Bolt</div></div>
-            <div class="app-mini-card"><div class="app-mini-icon"></div><div class="app-mini-title">Community</div><div class="app-mini-sub">2.4k active</div></div>
+            <div class="app-mini-card">
+              <img class="app-mini-thumb" src="breathwork.png" alt="Breathwork">
+              <div class="app-mini-info"><div class="app-mini-title">Breathwork</div><div class="app-mini-sub">12 sessions</div></div>
+            </div>
+            <div class="app-mini-card">
+              <img class="app-mini-thumb" src="recovery.png" alt="Recovery">
+              <div class="app-mini-info"><div class="app-mini-title">Recovery</div><div class="app-mini-sub">Kenny · Bolt</div></div>
+            </div>
           </div>
         </div>
         <div class="app-chat-preview">
           <div class="app-chat-label">Ask Laird</div>
           <div class="app-bubble">How should I structure breathwork before paddling out?</div>
-          <div class="app-bubble a">Start with box breathing — 4 counts in, 4 hold, 4 out. Three rounds minimum before paddling...</div>
+          <div class="app-bubble a">Start with box breathing — 4 counts in, 4 hold, 4 out. Three rounds minimum...</div>
         </div>
       </div>
-      <div class="phone-2">
-        <div class="phone-2-screen">
-          <div class="ph2-bar"></div>
-          <div class="ph2-label">Member Insights</div>
-          <div class="ph2-chart">
-            <div class="ph2-bar-item" style="height:55%"></div>
-            <div class="ph2-bar-item" style="height:80%"></div>
-            <div class="ph2-bar-item" style="height:40%"></div>
-            <div class="ph2-bar-item" style="height:95%"></div>
-            <div class="ph2-bar-item" style="height:65%"></div>
-          </div>
-          <div class="ph2-row"><span>Video completion</span><span>94%</span></div>
-          <div class="ph2-row"><span>AI questions / day</span><span>1,247</span></div>
-          <div class="ph2-row"><span>New members</span><span>+38</span></div>
-          <div class="ph2-row"><span>Commerce revenue</span><span>$4,820</span></div>
+      <!-- Insights panel beside phone -->
+      <div class="insights-panel">
+        <div class="ip-title">Member Insights</div>
+        <div class="ip-chart">
+          <div class="ip-bar" style="height:55%"></div>
+          <div class="ip-bar" style="height:82%"></div>
+          <div class="ip-bar" style="height:40%"></div>
+          <div class="ip-bar" style="height:96%"></div>
+          <div class="ip-bar" style="height:62%"></div>
         </div>
+        <div class="ip-stat"><span class="k">Video completion</span><span class="v">94%</span></div>
+        <div class="ip-stat"><span class="k">AI questions / day</span><span class="v">1,247</span></div>
+        <div class="ip-stat"><span class="k">New members</span><span class="v">+38</span></div>
+        <div class="ip-stat"><span class="k">Commerce revenue</span><span class="v">$4,820</span></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CAPS STRIP -->
-<div class="cap-strip">
-  <div class="cap-pill"><span class="dot" style="background:var(--a1)"></span><span>Web App</span></div>
-  <div class="cap-pill"><span class="dot" style="background:var(--a1)"></span><span>iOS</span></div>
-  <div class="cap-pill"><span class="dot" style="background:var(--a1)"></span><span>Android</span></div>
-  <div class="cap-sep"></div>
-  <div class="cap-pill"><span class="dot" style="background:var(--a2)"></span><span>Private AI Knowledge Base</span></div>
-  <div class="cap-pill"><span class="dot" style="background:var(--a2)"></span><span>Laird &amp; Gabby AI</span></div>
-  <div class="cap-sep"></div>
-  <div class="cap-pill"><span class="dot" style="background:var(--a1)"></span><span>Behavioral Analytics</span></div>
-  <div class="cap-pill"><span class="dot" style="background:var(--a1)"></span><span>Content Intelligence</span></div>
-  <div class="cap-sep"></div>
-  <div class="cap-pill"><span class="dot" style="background:var(--a2)"></span><span>Expert Network</span></div>
-  <div class="cap-pill"><span class="dot" style="background:var(--a2)"></span><span>Commerce</span></div>
-  <div class="cap-pill"><span class="dot" style="background:var(--a2)"></span><span>Resort Bookings</span></div>
-  <div class="cap-sep"></div>
-  <div class="cap-pill"><span class="dot" style="background:var(--a1)"></span><span>Live Programming</span></div>
-  <div class="cap-pill"><span class="dot" style="background:var(--a1)"></span><span>Community</span></div>
-</div>
-
-<!-- STATS -->
+<!-- STATS (dark) -->
 <div class="stats-section">
   <div class="stats-grid">
     <div class="stat-box fi">
-      <div class="stat-ico">
-        <div class="ico-sm">
-          <svg viewBox="0 0 17 17" fill="none" stroke="url(#s1)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="s1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="8.5" cy="5" r="2.5"/><path d="M3 14s1-4 5.5-4 5.5 4 5.5 4"/></svg>
-        </div>
-      </div>
+      <div class="stat-ico"><div class="ico-sm"><svg viewBox="0 0 17 17" fill="none" stroke="url(#s1)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="s1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="8.5" cy="5" r="2.5"/><path d="M3 14s1-4 5.5-4 5.5 4 5.5 4"/></svg></div></div>
       <div class="stat-n">18</div>
       <div class="stat-l">Years building<br>digital products</div>
     </div>
     <div class="stat-box fi d1">
-      <div class="stat-ico">
-        <div class="ico-sm">
-          <svg viewBox="0 0 17 17" fill="none" stroke="url(#s2)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="s2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><rect x="4" y="2" width="9" height="13" rx="2.5"/><line x1="6.5" y1="13" x2="10.5" y2="13"/></svg>
-        </div>
-      </div>
+      <div class="stat-ico"><div class="ico-sm"><svg viewBox="0 0 17 17" fill="none" stroke="url(#s2)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="s2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><rect x="4" y="2" width="9" height="13" rx="2.5"/><line x1="6.5" y1="13" x2="10.5" y2="13"/></svg></div></div>
       <div class="stat-n">3</div>
       <div class="stat-l">Platforms — web,<br>iOS &amp; Android</div>
     </div>
     <div class="stat-box fi d2">
-      <div class="stat-ico">
-        <div class="ico-sm">
-          <svg viewBox="0 0 17 17" fill="none" stroke="url(#s3)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="s3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M8.5 2a4.5 4.5 0 0 1 4.5 4.5C13 9.5 8.5 15 8.5 15S4 9.5 4 6.5A4.5 4.5 0 0 1 8.5 2z"/><circle cx="8.5" cy="6.5" r="1.7"/></svg>
-        </div>
-      </div>
+      <div class="stat-ico"><div class="ico-sm"><svg viewBox="0 0 17 17" fill="none" stroke="url(#s3)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="s3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M8.5 2a4.5 4.5 0 0 1 4.5 4.5C13 9.5 8.5 15 8.5 15S4 9.5 4 6.5A4.5 4.5 0 0 1 8.5 2z"/><circle cx="8.5" cy="6.5" r="1.7"/></svg></div></div>
       <div class="stat-n">1</div>
       <div class="stat-l">Private AI layer,<br>owned by you</div>
     </div>
     <div class="stat-box fi d3">
-      <div class="stat-ico">
-        <div class="ico-sm">
-          <svg viewBox="0 0 17 17" fill="none" stroke="url(#s4)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="s4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M8.5 2l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8.5 10l-3.2 1.9.6-3.6L3.3 5.8l3.6-.5z"/></svg>
-        </div>
-      </div>
+      <div class="stat-ico"><div class="ico-sm"><svg viewBox="0 0 17 17" fill="none" stroke="url(#s4)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="s4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M8.5 2l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8.5 10l-3.2 1.9.6-3.6L3.3 5.8l3.6-.5z"/></svg></div></div>
       <div class="stat-n">$0</div>
       <div class="stat-l">Traditional<br>build framework fee</div>
     </div>
   </div>
 </div>
 
-<!-- VISION -->
+<!-- VISION (light) -->
 <div id="vision" class="vision-section">
-  <div class="wrap">
-    <p class="eyebrow fi">The Vision</p>
-    <h2 class="sh fi d1">Built for exactly this</h2>
+  <div class="wrap-head fi">
+    <p class="eyebrow">The Vision</p>
+    <h2 class="sh" style="color:var(--ltext); text-align:center;">Built for exactly this</h2>
   </div>
-  <div class="vision-quote-block fi d2">
+  <div class="vision-quote-block fi d1">
     <p class="vision-quote">
-      Hamilton House can become the <span class="g">trusted gateway</span> to a world of health and performance — interactive, personalized, connected to a real community. Not just content. A living experience that grows with every member interaction.
+      Hamilton House can become the <span class="g">trusted gateway</span> to a world of health and performance — interactive, personalized, and connected to a real community. Not just content. A living experience that grows with every member interaction.
     </p>
   </div>
   <div class="vision-cols">
-    <div class="vc fi">
-      <div class="ico" style="margin-bottom:14px;">
-        <svg viewBox="0 0 22 22" fill="none" stroke="url(#v1)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="v1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="11" cy="7" r="3.5"/><circle cx="5" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M8.5 7.5c-1 3-3.5 5-3.5 7.2M13.5 7.5c1 3 3.5 5 3.5 7.2"/></svg>
+    <div class="vc-outlined fi">
+      <div class="l-ico">
+        <svg viewBox="0 0 22 22" fill="none" stroke="url(#v1)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="v1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="11" cy="7" r="3.5"/><circle cx="5" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M8.5 8c-1 3-3.5 5-3.5 7.2M13.5 8c1 3 3.5 5 3.5 7.2"/></svg>
       </div>
       <div class="vc-eye">The Foundation</div>
       <p>Laird and Gabby have spent a lifetime learning. They are surrounded by extraordinary people — trainers, physicians, recovery experts, nutritionists. What makes Hamilton House special is not that they claim to have every answer. It is that they know, trust, and learn from people who do.<br><br><strong>That trust is the product.</strong></p>
     </div>
-    <div class="vc fi d1">
-      <div class="ico" style="margin-bottom:14px;">
-        <svg viewBox="0 0 22 22" fill="none" stroke="url(#v2)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="v2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M11 3a7 7 0 0 1 7 7c0 5-7 12-7 12S4 15 4 10a7 7 0 0 1 7-7z"/><path d="M7 10c0-2.2 1.8-4 4-4s4 1.8 4 4-4 8-4 8-4-5.8-4-8z" opacity=".4"/></svg>
+    <div class="vc-filled fi d1">
+      <div class="l-ico">
+        <svg viewBox="0 0 22 22" fill="none" stroke="url(#v2)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="v2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M11 3a7 7 0 0 1 7 7c0 5-7 12-7 12S4 15 4 10a7 7 0 0 1 7-7z"/><circle cx="11" cy="10" r="2.5"/></svg>
       </div>
       <div class="vc-eye">The Opportunity</div>
       <p>Someone experiences Hamilton House at a resort in Hawaii or Oregon. They go home, continue the practice inside the app, stay connected to the community, book another visit — and keep learning from Laird, Gabby, and the people they trust.<br><br><strong>That loop is the business.</strong> And fig1 is how you build it without starting over every time you learn something.</p>
@@ -596,24 +610,27 @@
   </div>
 </div>
 
-<!-- BENTO PLATFORM -->
+<!-- PLATFORM (light) -->
 <div id="platform" class="platform-section">
-  <div class="wrap" style="margin-bottom:44px;">
+  <div class="wrap" style="padding-top:80px; margin-bottom:40px;">
     <p class="eyebrow fi">What We'll Build</p>
-    <h2 class="sh fi d1">Every layer of the experience</h2>
-    <p class="sp fi d2">Web, iOS, Android, AI, analytics, expert network, and commerce — all living together and evolving as the business evolves. No rebuild every time you learn something new.</p>
+    <h2 class="sh fi d1" style="color:var(--ltext);">Every layer of the experience</h2>
+    <p class="sp fi d2" style="color:var(--lmuted);">Web, iOS, Android, AI, analytics, expert network, and commerce — all living together and evolving as the business evolves.</p>
   </div>
   <div class="bento">
 
-    <!-- App -->
+    <!-- App — full width top row, horizontal -->
     <div class="b-card b-app fi">
       <div class="b-inner">
-        <div class="ico">
+        <div class="l-ico">
           <svg viewBox="0 0 22 22" fill="none" stroke="url(#b1)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="b1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><rect x="5" y="2" width="12" height="18" rx="3"/><line x1="9" y1="18" x2="13" y2="18"/></svg>
         </div>
         <div class="b-eye">App Experience</div>
         <div class="b-title">Web, iOS &amp; Android</div>
-        <div class="b-desc">Breathwork, HIGHX, nutrition, sleep, recovery, live programming, and community — one Hamilton House on every device.</div>
+        <div class="b-desc">Breathwork, HIGHX, nutrition, sleep, recovery, live programming, and community — one Hamilton House platform on every device.</div>
+        <div class="btags" style="padding:16px 0 0; border-top:none;">
+          <span class="btag">Web</span><span class="btag">iOS</span><span class="btag">Android</span><span class="btag">Live</span><span class="btag">Community</span>
+        </div>
       </div>
       <div class="app-preview-strip">
         <div class="mini-phone">
@@ -623,26 +640,23 @@
             <div class="ms-name">Hamilton House</div>
             <div class="ms-card"><div class="ms-card-title">Morning Breathwork · 12 min</div><div class="ms-card-sub">Laird Hamilton</div></div>
             <div class="ms-row">
-              <div class="ms-mini"><div class="ms-mini-icon"></div><div class="ms-mini-t">HIGHX</div><div class="ms-mini-s">45 min</div></div>
-              <div class="ms-mini"><div class="ms-mini-icon"></div><div class="ms-mini-t">Recovery</div><div class="ms-mini-s">Kenny</div></div>
+              <div class="ms-mini"><img class="ms-mini-thumb" src="breathwork.png" alt=""><div class="ms-mini-info"><div class="ms-mini-t">Breathwork</div><div class="ms-mini-s">12 sessions</div></div></div>
+              <div class="ms-mini"><img class="ms-mini-thumb" src="recovery.png" alt=""><div class="ms-mini-info"><div class="ms-mini-t">Recovery</div><div class="ms-mini-s">Kenny</div></div></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="btags">
-        <span class="btag">Web</span><span class="btag">iOS</span><span class="btag">Android</span><span class="btag">Live</span><span class="btag">Community</span>
-      </div>
     </div>
 
     <!-- AI -->
-    <div class="b-card b-ai fi d1">
+    <div class="b-card b-ai fi">
       <div class="b-inner">
-        <div class="ico">
+        <div class="l-ico">
           <svg viewBox="0 0 22 22" fill="none" stroke="url(#b2)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="b2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M11 2a7 7 0 0 1 7 7c0 5-7 12-7 12S4 14 4 9a7 7 0 0 1 7-7z"/><circle cx="11" cy="9" r="2.5"/></svg>
         </div>
         <div class="b-eye">AI Intelligence Layer</div>
         <div class="b-title">Ask Laird. Ask Gabby.</div>
-        <div class="b-desc">A private knowledge base built from their actual material. Any question, any hour. Hamilton House controls its own intelligence — not a public model.</div>
+        <div class="b-desc">A private knowledge base built from their actual material. Any question, any hour. Hamilton House controls its own intelligence.</div>
       </div>
       <div class="b-divider"></div>
       <div class="ai-chat-wrap">
@@ -654,14 +668,14 @@
     </div>
 
     <!-- Analytics -->
-    <div class="b-card b-analytics fi d2">
+    <div class="b-card b-analytics fi d1">
       <div class="b-inner">
-        <div class="ico">
+        <div class="l-ico">
           <svg viewBox="0 0 22 22" fill="none" stroke="url(#b3)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="b3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><line x1="17" y1="18" x2="17" y2="9"/><line x1="11" y1="18" x2="11" y2="4"/><line x1="5" y1="18" x2="5" y2="13"/></svg>
         </div>
         <div class="b-eye">Analytics</div>
         <div class="b-title">What members actually do</div>
-        <div class="b-desc">What they watch, skip, ask, and buy. The data that shapes what you build next.</div>
+        <div class="b-desc">What they watch, skip, ask, and buy — the data that shapes what you build next.</div>
       </div>
       <div class="b-divider"></div>
       <div class="chart-wrap">
@@ -673,99 +687,85 @@
           <div class="bar-col"><div class="bar-fill" style="height:96%"></div><div class="bar-lbl">AI Chat</div></div>
           <div class="bar-col"><div class="bar-fill" style="height:62%"></div><div class="bar-lbl">Shop</div></div>
         </div>
-        <div class="chart-callout"><strong>Insight:</strong> Members using AI chat complete 3× more video content in the following week.</div>
+        <div class="chart-callout"><strong>Insight:</strong> Members using AI chat complete 3× more video in the following week.</div>
       </div>
     </div>
 
     <!-- Experts -->
-    <div class="b-card b-experts fi d1">
+    <div class="b-card b-experts fi d2">
       <div class="b-inner">
-        <div class="ico">
+        <div class="l-ico">
           <svg viewBox="0 0 22 22" fill="none" stroke="url(#b4)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="b4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="11" cy="7" r="3"/><circle cx="4" cy="16" r="2"/><circle cx="18" cy="16" r="2"/><path d="M9 10c-1 2.5-3 3.5-3 4.2M13 10c1 2.5 3 3.5 3 4.2M11 10v4"/></svg>
         </div>
         <div class="b-eye">Expert Network</div>
         <div class="b-title">The people Laird &amp; Gabby trust</div>
-        <div class="b-desc">Each expert — their own content, education, and AI experience inside Hamilton House.</div>
+        <div class="b-desc">Each expert — content, education, and their own AI inside Hamilton House.</div>
       </div>
       <div class="b-divider"></div>
       <div class="experts-wrap">
         <div class="expert-row">
           <div class="ea"><div class="ea-circle">K</div><div class="ea-name">Kenny</div><div class="ea-role">Movement</div></div>
           <div class="ea"><div class="ea-circle">M</div><div class="ea-name">Moe</div><div class="ea-role">Data</div></div>
-          <div class="ea"><div class="ea-circle" style="background:var(--raised);border:2px dashed var(--border);color:var(--muted);">+</div><div class="ea-name">Trainer</div><div class="ea-role">Strength</div></div>
-          <div class="ea"><div class="ea-circle" style="background:var(--raised);border:2px dashed var(--border);color:var(--muted);">+</div><div class="ea-name">Expert</div><div class="ea-role">Recovery</div></div>
+          <div class="ea"><div class="ea-circle" style="background:var(--lraised);box-shadow:none;border:2px dashed var(--lborder);color:var(--ldim);">+</div><div class="ea-name" style="color:var(--ldim);">Trainer</div><div class="ea-role">Strength</div></div>
+          <div class="ea"><div class="ea-circle" style="background:var(--lraised);box-shadow:none;border:2px dashed var(--lborder);color:var(--ldim);">+</div><div class="ea-name" style="color:var(--ldim);">Expert</div><div class="ea-role">Recovery</div></div>
         </div>
         <div class="experts-note">Someone discovers Kenny inside Hamilton House, experiences his training, subscribes to Bolt. The same model works for every person in Laird and Gabby's world.</div>
       </div>
     </div>
 
-    <!-- Commerce -->
-    <div class="b-card b-commerce fi d2">
+    <!-- Commerce — full width bottom -->
+    <div class="b-card b-commerce fi d1">
       <div class="b-inner">
-        <div class="ico">
-          <svg viewBox="0 0 22 22" fill="none" stroke="url(#b5)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="b5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="8" cy="19" r="1.2"/><circle cx="17" cy="19" r="1.2"/><path d="M2 2h3l2.2 10.5a1.8 1.8 0 0 0 1.8 1.5h8.2a1.8 1.8 0 0 0 1.8-1.5L20 6H6"/></svg>
+        <div>
+          <div class="l-ico">
+            <svg viewBox="0 0 22 22" fill="none" stroke="url(#b5)" stroke-width="1.7" stroke-linecap="round"><defs><linearGradient id="b5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="8" cy="19" r="1.2"/><circle cx="17" cy="19" r="1.2"/><path d="M2 2h3l2.2 10.5a1.8 1.8 0 0 0 1.8 1.5h8.2a1.8 1.8 0 0 0 1.8-1.5L20 6H6"/></svg>
+          </div>
+          <div class="b-eye">Commerce</div>
+          <div class="b-title">Multiple revenue streams</div>
+          <div class="b-desc">The products Laird and Gabby actually use should be part of the experience — supplements, equipment, resort bookings, and partner revenue, all connected to the same platform.</div>
         </div>
-        <div class="b-eye">Commerce</div>
-        <div class="b-title">Multiple revenue streams</div>
-        <div class="b-desc">Products, bookings, partners — all connected to the same platform.</div>
-      </div>
-      <div class="b-divider"></div>
-      <div class="rev-wrap">
-        <div class="rev-item"><div class="rev-label-row"><span class="rev-name">Subscriptions</span><span class="rev-badge">Core</span></div><div class="rev-track"><div class="rev-fill" style="width:70%"></div></div></div>
-        <div class="rev-item"><div class="rev-label-row"><span class="rev-name">Product Commerce</span><span class="rev-badge">High Margin</span></div><div class="rev-track"><div class="rev-fill" style="width:84%"></div></div></div>
-        <div class="rev-item"><div class="rev-label-row"><span class="rev-name">Resort Bookings</span><span class="rev-badge">High Value</span></div><div class="rev-track"><div class="rev-fill" style="width:52%"></div></div></div>
-        <div class="rev-item"><div class="rev-label-row"><span class="rev-name">Expert Partners</span><span class="rev-badge">Scalable</span></div><div class="rev-track"><div class="rev-fill" style="width:38%"></div></div></div>
+        <div class="rev-wrap">
+          <div class="rev-item"><div class="rev-label-row"><span class="rev-name">Subscriptions</span><span class="rev-badge">Core</span></div><div class="rev-track"><div class="rev-fill" style="width:70%"></div></div></div>
+          <div class="rev-item"><div class="rev-label-row"><span class="rev-name">Product Commerce</span><span class="rev-badge">High Margin</span></div><div class="rev-track"><div class="rev-fill" style="width:84%"></div></div></div>
+          <div class="rev-item"><div class="rev-label-row"><span class="rev-name">Resort Bookings</span><span class="rev-badge">High Value</span></div><div class="rev-track"><div class="rev-fill" style="width:52%"></div></div></div>
+          <div class="rev-item"><div class="rev-label-row"><span class="rev-name">Expert Partners</span><span class="rev-badge">Scalable</span></div><div class="rev-track"><div class="rev-fill" style="width:38%"></div></div></div>
+        </div>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- THE LOOP -->
+<!-- THE LOOP (dark accent) -->
 <div id="loop" class="loop-section">
   <div class="loop-inner">
     <p class="eyebrow fi" style="text-align:center;">The Loop</p>
-    <h2 class="sh fi d1" style="text-align:center; max-width:640px; margin:0 auto 10px;">Physical and digital reinforce each other</h2>
-    <p style="text-align:center; color:var(--muted); font-size:1rem; max-width:520px; margin:0 auto; line-height:1.8;" class="fi d2">The resort visit starts the relationship. The platform sustains it. The data improves everything.</p>
+    <h2 class="sh fi d1" style="text-align:center; color:var(--white); max-width:600px; margin:0 auto 10px;">Physical and digital reinforce each other</h2>
+    <p style="text-align:center; color:var(--muted); font-size:1rem; max-width:500px; margin:0 auto; line-height:1.8;" class="fi d2">The resort visit starts the relationship. The platform sustains it. The data improves everything.</p>
     <div class="loop-diagram fi d2">
       <div class="loop-node">
-        <div class="loop-ico-wrap">
-          <svg viewBox="0 0 26 26" fill="none" stroke="url(#l1)" stroke-width="1.8" stroke-linecap="round"><defs><linearGradient id="l1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M13 3a8 8 0 0 1 8 8c0 5.5-8 14-8 14S5 16.5 5 11a8 8 0 0 1 8-8z"/><circle cx="13" cy="11" r="2.8"/></svg>
-        </div>
-        <h4>Resort Visit</h4>
-        <p>Hawaii or Oregon — the experience that starts everything</p>
+        <div class="loop-ico-wrap"><svg viewBox="0 0 26 26" fill="none" stroke="url(#l1)" stroke-width="1.8" stroke-linecap="round"><defs><linearGradient id="l1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M13 3a8 8 0 0 1 8 8c0 5.5-8 14-8 14S5 16.5 5 11a8 8 0 0 1 8-8z"/><circle cx="13" cy="11" r="2.8"/></svg></div>
+        <h4>Resort Visit</h4><p>Hawaii or Oregon — the experience that starts everything</p>
       </div>
       <div class="loop-arrow"><div class="arrow-wrap"><div class="arrow-line"></div><div class="arrow-head"></div></div></div>
       <div class="loop-node">
-        <div class="loop-ico-wrap">
-          <svg viewBox="0 0 26 26" fill="none" stroke="url(#l2)" stroke-width="1.8" stroke-linecap="round"><defs><linearGradient id="l2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><rect x="6" y="2" width="14" height="22" rx="4"/><line x1="10" y1="20" x2="16" y2="20"/></svg>
-        </div>
-        <h4>Download App</h4>
-        <p>The full Hamilton House world in their pocket</p>
+        <div class="loop-ico-wrap"><svg viewBox="0 0 26 26" fill="none" stroke="url(#l2)" stroke-width="1.8" stroke-linecap="round"><defs><linearGradient id="l2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><rect x="6" y="2" width="14" height="22" rx="4"/><line x1="10" y1="20" x2="16" y2="20"/></svg></div>
+        <h4>Download App</h4><p>The full Hamilton House world in their pocket</p>
       </div>
       <div class="loop-arrow"><div class="arrow-wrap"><div class="arrow-line"></div><div class="arrow-head"></div></div></div>
       <div class="loop-node">
-        <div class="loop-ico-wrap">
-          <svg viewBox="0 0 26 26" fill="none" stroke="url(#l3)" stroke-width="1.8" stroke-linecap="round"><defs><linearGradient id="l3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="13" cy="13" r="9"/><path d="M13 8v5l3 2"/></svg>
-        </div>
-        <h4>Daily Practice</h4>
-        <p>Breathwork, workouts, AI coaching, community</p>
+        <div class="loop-ico-wrap"><svg viewBox="0 0 26 26" fill="none" stroke="url(#l3)" stroke-width="1.8" stroke-linecap="round"><defs><linearGradient id="l3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="13" cy="13" r="9"/><path d="M13 8v5l3 2"/></svg></div>
+        <h4>Daily Practice</h4><p>Breathwork, workouts, AI coaching, community</p>
       </div>
       <div class="loop-arrow"><div class="arrow-wrap"><div class="arrow-line"></div><div class="arrow-head"></div></div></div>
       <div class="loop-node">
-        <div class="loop-ico-wrap">
-          <svg viewBox="0 0 26 26" fill="none" stroke="url(#l4)" stroke-width="1.8" stroke-linecap="round"><defs><linearGradient id="l4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M4 19s2-4 9-4 9 4 9 4"/><circle cx="13" cy="9" r="4.5"/></svg>
-        </div>
-        <h4>Community</h4>
-        <p>Connection, accountability, shared practice</p>
+        <div class="loop-ico-wrap"><svg viewBox="0 0 26 26" fill="none" stroke="url(#l4)" stroke-width="1.8" stroke-linecap="round"><defs><linearGradient id="l4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M4 19s2-4 9-4 9 4 9 4"/><circle cx="13" cy="9" r="4.5"/></svg></div>
+        <h4>Community</h4><p>Connection, accountability, shared practice</p>
       </div>
       <div class="loop-arrow"><div class="arrow-wrap"><div class="arrow-line"></div><div class="arrow-head"></div></div></div>
       <div class="loop-node">
-        <div class="loop-ico-wrap">
-          <svg viewBox="0 0 26 26" fill="none" stroke="url(#l5)" stroke-width="1.8" stroke-linecap="round"><defs><linearGradient id="l5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M13 3a8 8 0 0 1 8 8c0 5.5-8 14-8 14S5 16.5 5 11a8 8 0 0 1 8-8z"/><circle cx="13" cy="11" r="2.8"/></svg>
-        </div>
-        <h4>Book Again</h4>
-        <p>The platform drives the next physical visit</p>
+        <div class="loop-ico-wrap"><svg viewBox="0 0 26 26" fill="none" stroke="url(#l5)" stroke-width="1.8" stroke-linecap="round"><defs><linearGradient id="l5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M13 3a8 8 0 0 1 8 8c0 5.5-8 14-8 14S5 16.5 5 11a8 8 0 0 1 8-8z"/><circle cx="13" cy="11" r="2.8"/></svg></div>
+        <h4>Book Again</h4><p>The platform drives the next physical visit</p>
       </div>
     </div>
     <div class="loop-return fi d3"></div>
@@ -773,62 +773,42 @@
   </div>
 </div>
 
-<!-- APPROACH -->
+<!-- APPROACH (light) -->
 <div id="approach" class="approach-section">
-  <div class="wrap" style="margin-bottom:56px;">
+  <div class="wrap" style="margin-bottom:52px;">
     <p class="eyebrow fi">Our Approach</p>
-    <h2 class="sh fi d1">A different kind of partnership</h2>
-    <p class="sp fi d2">Hamilton House should not spend $70,000 to get an app framework. We built fig1 to eliminate that model entirely.</p>
+    <h2 class="sh fi d1" style="color:var(--ltext);">A different kind of partnership</h2>
+    <p class="sp fi d2" style="color:var(--lmuted);">Hamilton House should not spend $70,000 to get an app framework. We built fig1 to eliminate that model entirely.</p>
   </div>
   <div class="approach-grid">
     <div class="a-card fi">
       <div class="a-header">
-        <div class="ico-sm">
-          <svg viewBox="0 0 17 17" fill="none" stroke="url(#a1)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="a1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M8.5 2l6 3v5c0 3-2.7 5.5-6 6.5C5.2 15.5 2.5 13 2.5 10V5z"/></svg>
-        </div>
-        <div>
-          <div class="a-num">01</div>
-          <h3>Get the experience live</h3>
-        </div>
+        <div class="l-ico-sm"><svg viewBox="0 0 17 17" fill="none" stroke="url(#a1)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="a1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M8.5 2l6 3v5c0 3-2.7 5.5-6 6.5C5.2 15.5 2.5 13 2.5 10V5z"/></svg></div>
+        <div><div class="a-num">01</div><h3>Get the experience live</h3></div>
       </div>
-      <p>Provide the content and we launch the initial Hamilton House experience across web and mobile — without a traditional build fee. We earn the right to build more by delivering first.</p>
+      <p>Provide the content and we launch Hamilton House across web and mobile without a traditional build fee. We earn the right to build more by delivering first.</p>
       <span class="a-pill">No upfront build cost</span>
     </div>
     <div class="a-card fi d1">
       <div class="a-header">
-        <div class="ico-sm">
-          <svg viewBox="0 0 17 17" fill="none" stroke="url(#a2)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="a2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M2 8.5h13M8.5 2v13"/><circle cx="8.5" cy="8.5" r="6.5"/></svg>
-        </div>
-        <div>
-          <div class="a-num">02</div>
-          <h3>Build the ongoing relationship</h3>
-        </div>
+        <div class="l-ico-sm"><svg viewBox="0 0 17 17" fill="none" stroke="url(#a2)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="a2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><path d="M2 8.5h13M8.5 2v13"/><circle cx="8.5" cy="8.5" r="6.5"/></svg></div>
+        <div><div class="a-num">02</div><h3>Build the ongoing relationship</h3></div>
       </div>
       <p>Our business together is built around things that require real expertise: content production, new features, integrations, analytics, optimization, and commerce.</p>
       <span class="a-pill">Earn as we deliver</span>
     </div>
     <div class="a-card fi d2">
       <div class="a-header">
-        <div class="ico-sm">
-          <svg viewBox="0 0 17 17" fill="none" stroke="url(#a3)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="a3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="5" cy="5" r="2.5"/><circle cx="12" cy="12" r="2.5"/><path d="M7.5 5h1.5a3 3 0 0 1 3 3v1.5"/></svg>
-        </div>
-        <div>
-          <div class="a-num">03</div>
-          <h3>Work alongside Moe</h3>
-        </div>
+        <div class="l-ico-sm"><svg viewBox="0 0 17 17" fill="none" stroke="url(#a3)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="a3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><circle cx="5" cy="5" r="2.5"/><circle cx="12" cy="12" r="2.5"/><path d="M7.5 5h1.5a3 3 0 0 1 3 3v1.5"/></svg></div>
+        <div><div class="a-num">03</div><h3>Work alongside Moe</h3></div>
       </div>
       <p>Give him access to fig1 and we build around what he is doing. If he helped build Peloton, he will immediately see where fig1 adds value and where each piece should live.</p>
       <span class="a-pill">Collaborative, not competitive</span>
     </div>
     <div class="a-card fi d3">
       <div class="a-header">
-        <div class="ico-sm">
-          <svg viewBox="0 0 17 17" fill="none" stroke="url(#a4)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="a4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><rect x="3" y="3" width="11" height="11" rx="2.5"/><path d="M6 6l5 5M11 6l-5 5"/></svg>
-        </div>
-        <div>
-          <div class="a-num">04</div>
-          <h3>No lock-in</h3>
-        </div>
+        <div class="l-ico-sm"><svg viewBox="0 0 17 17" fill="none" stroke="url(#a4)" stroke-width="1.6" stroke-linecap="round"><defs><linearGradient id="a4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00e5a0"/><stop offset="100%" stop-color="#2f8fff"/></linearGradient></defs><rect x="3" y="3" width="11" height="11" rx="2.5"/><path d="M6 6l5 5M11 6l-5 5"/></svg></div>
+        <div><div class="a-num">04</div><h3>No lock-in</h3></div>
       </div>
       <p>We want to earn the work by continuing to make the platform better. If pieces belong to Moe or another partner, they should own them. We are here to accelerate, not control.</p>
       <span class="a-pill">You stay in control</span>
@@ -836,12 +816,12 @@
   </div>
 </div>
 
-<!-- NEXT STEPS -->
+<!-- NEXT STEPS (light raised) -->
 <div class="steps-section">
   <div class="steps-inner">
     <p class="eyebrow fi" style="text-align:center;">Next Steps</p>
     <h2 class="sh fi d1" style="text-align:center; margin-bottom:10px;">Simple from here</h2>
-    <p style="text-align:center; color:var(--muted); font-size:1rem; max-width:460px; margin:0 auto 60px; line-height:1.8;" class="fi d2">Rather than debating architecture in the abstract, let's put something real in front of the team.</p>
+    <p style="text-align:center; color:var(--lmuted); font-size:1rem; max-width:460px; margin:0 auto 56px; line-height:1.8;" class="fi d2">Rather than debating architecture in the abstract, let's put something real in front of the team.</p>
     <div class="vtl">
       <div class="vtl-row fi">
         <div class="vtl-left"><div class="vtl-dot">1</div><div class="vtl-connector"></div></div>
@@ -859,21 +839,23 @@
   </div>
 </div>
 
-<!-- CTA -->
+<!-- CTA (dark) -->
 <div id="contact" class="cta-section">
   <div class="wrap">
-    <p class="cta-eyebrow fi">Let's Build It</p>
-    <h2 class="fi d1">You have something<br><span class="g">really special here.</span></h2>
-    <p class="fi d2">The physical Hamilton Houses, the relationship people have with Laird and Gabby, the trusted network around them, and the ability to stay connected digitally — all of it reinforces itself. We would love to help you build it.</p>
-    <div class="cta-btns fi d3">
-      <a href="mailto:jim@fig1.ai" class="btn-p">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        jim@fig1.ai
-      </a>
-      <a href="mailto:sales@fig1.ai" class="btn-g">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        sales@fig1.ai
-      </a>
+    <div>
+      <p class="eyebrow fi" style="text-align:center;">Let's Build It</p>
+      <h2 class="fi d1">You have something<br><span class="g">really special here.</span></h2>
+      <div><p class="fi d2">The physical Hamilton Houses, the relationship people have with Laird and Gabby, the trusted network around them, and the ability to stay connected digitally — all of it reinforces itself. We would love to help you build it.</p></div>
+      <div class="cta-btns fi d3">
+        <a href="mailto:jim@fig1.ai" class="btn-p">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          jim@fig1.ai
+        </a>
+        <a href="mailto:sales@fig1.ai" class="btn-g">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          sales@fig1.ai
+        </a>
+      </div>
     </div>
   </div>
 </div>
