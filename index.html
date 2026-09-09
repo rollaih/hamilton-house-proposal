@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamilton House — fig1.ai Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-dark: #0d0f14;
+      --bg-card: #161921;
+      --bg-card-hover: #1c2029;
+      --accent-green: #00e676;
+      --accent-blue: #00b0ff;
+      --accent-gradient: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+      --text-white: #f0f0f5;
+      --text-muted: #8e92a4;
+      --text-dim: #5a5e70;
+      --border: #2a2d3a;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-white);
+      background: var(--bg-dark);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(13, 15, 20, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+    nav .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    nav .nav-brand .accent {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    nav .nav-brand .dim { color: var(--text-dim); }
+    nav .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    nav .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    nav .nav-links a:hover { color: var(--accent-green); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(0, 230, 118, 0.06) 0%, rgba(0, 176, 255, 0.03) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 230, 118, 0.08);
+      border: 1px solid rgba(0, 230, 118, 0.2);
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-green);
+      margin-bottom: 32px;
+    }
+    .hero-badge .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .hero h1 .gradient-text {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero .subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero .hero-meta {
+      display: flex;
+      gap: 40px;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .hero .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero .hero-meta .label { color: var(--text-muted); }
+
+    /* ── SECTION COMMON ── */
+    section {
+      padding: 100px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+      line-height: 1.8;
+      margin-bottom: 56px;
+    }
+
+    /* ── VISION / NARRATIVE ── */
+    .narrative {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px 56px;
+      line-height: 1.9;
+      color: var(--text-muted);
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .narrative::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent-gradient);
+    }
+    .narrative p { margin-bottom: 20px; }
+    .narrative p:last-child { margin-bottom: 0; }
+    .narrative strong { color: var(--text-white); font-weight: 600; }
+
+    /* ── WHAT WE'LL BUILD ── */
+    .build-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .build-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .build-card:hover {
+      border-color: rgba(0, 230, 118, 0.3);
+      background: var(--bg-card-hover);
+    }
+    .build-card.wide {
+      grid-column: span 2;
+    }
+    .build-card .icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(0, 230, 118, 0.08);
+      border: 1px solid rgba(0, 230, 118, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+    .build-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .build-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .build-card .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .build-card .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 4px 12px;
+      border-radius: 50px;
+      background: rgba(0, 230, 118, 0.07);
+      border: 1px solid rgba(0, 230, 118, 0.15);
+      color: var(--accent-green);
+    }
+
+    /* ── DELIVERABLES ── */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .deliverable-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .deliverable-card:hover {
+      border-color: rgba(0, 176, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .deliverable-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .deliverable-card ul {
+      list-style: none;
+    }
+    .deliverable-card ul li {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding: 8px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .deliverable-card ul li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      margin-top: 8px;
+    }
+
+    /* ── APPROACH / INVESTMENT ── */
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 0;
+    }
+    .approach-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      transition: border-color 0.3s;
+    }
+    .approach-card:hover {
+      border-color: rgba(0, 230, 118, 0.3);
+    }
+    .approach-card .step-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+    .approach-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .approach-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ── NEXT STEPS ── */
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .step-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      transition: border-color 0.3s;
+    }
+    .step-item:hover {
+      border-color: rgba(0, 230, 118, 0.3);
+    }
+    .step-item .step-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      flex-shrink: 0;
+      width: 36px;
+      line-height: 1.2;
+    }
+    .step-item .step-content h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .step-item .step-content p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* ── CONTACT / FOOTER ── */
+    .contact {
+      text-align: center;
+      padding: 80px 24px 100px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      padding: 12px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+    }
+    .contact-link:hover { color: var(--accent-green); border-color: rgba(0, 230, 118, 0.3); }
+    .contact-link .icon-sm { font-size: 1.1rem; }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+    }
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--accent-green); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .divider hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      nav .nav-links { display: none; }
+      .build-grid { grid-template-columns: 1fr; }
+      .build-card.wide { grid-column: span 1; }
+      .deliverables-grid { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .narrative { padding: 32px 28px; }
+      .pricing-card { padding: 40px 28px; }
+      .hero .hero-meta { flex-direction: column; gap: 12px; align-items: center; }
+      section { padding: 72px 20px; }
+    }
+
+    /* ── FADE-IN ANIMATION ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-brand">
+      <span><span class="accent">fig1</span><span class="dim">.ai</span></span>
+      <span class="dim">| Hamilton House</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#vision">The Vision</a></li>
+      <li><a href="#build">What We'll Build</a></li>
+      <li><a href="#approach">Our Approach</a></li>
+      <li><a href="#next-steps">Next Steps</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Platform Proposal
+    </div>
+    <h1>
+      <span class="gradient-text">Hamilton House</span><br>
+      The Experience Layer
+    </h1>
+    <p class="subtitle">
+      One platform that brings Laird, Gabby, and the entire Hamilton House world together — web, mobile, AI, community, and commerce, all evolving in real time.
+    </p>
+    <div class="hero-meta">
+      <span><span class="label">Prepared by</span> Jim &amp; the fig1.ai team</span>
+      <span><span class="label">For</span> Greg &amp; Hamilton House</span>
+      <span><span class="label">Date</span> September 2026</span>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- THE VISION -->
+  <section id="vision">
+    <p class="section-label fade-in">The Vision</p>
+    <h2 class="section-title fade-in">Built for exactly this</h2>
+    <p class="section-desc fade-in">
+      After our conversation, we kept thinking about Hamilton House. The more we did, the more convinced we became — this is almost exactly the type of experience we built fig1 for.
+    </p>
+    <div class="narrative fade-in">
+      <p>
+        Laird and Gabby have spent a lifetime learning. They are surrounded by extraordinary people — trainers, physicians, recovery experts, nutritionists — and what makes Hamilton House special is not that they claim to have every answer. It is that they know, trust, and learn from people who do.
+      </p>
+      <p>
+        <strong>Hamilton House can become the platform for those people.</strong> A trusted gateway to a world of health and performance — interactive, personalized, and connected to a real community. Not just content. A living, evolving experience that grows with every member interaction.
+      </p>
+      <p>
+        And all of it connects to the physical Hamilton House locations. Someone experiences Hamilton House at a resort in Hawaii or Oregon, goes home, continues the practice inside the app, stays connected to the community, books another visit — and continues learning from Laird, Gabby, and the people they trust.
+      </p>
+      <p>
+        <strong>That loop is the business.</strong> And fig1 is how you build it without starting over every time you learn something new.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- WHAT WE'LL BUILD -->
+  <section id="build">
+    <p class="section-label fade-in">What We'll Build</p>
+    <h2 class="section-title fade-in">Every layer of the Hamilton House experience</h2>
+    <p class="section-desc fade-in">
+      Web, iPhone, and Android experiences, content, analytics, conversational AI, and commerce — all living together and evolving as the business evolves.
+    </p>
+    <div class="build-grid">
+      <div class="build-card fade-in">
+        <div class="icon">📱</div>
+        <h3>The App Experience</h3>
+        <p>Web, iOS, and Android — a single unified experience for members. Breathwork, HIGHX workouts, nutrition, sleep, recovery, live programming, and community all exist inside one Hamilton House platform.</p>
+        <div class="tag-list">
+          <span class="tag">Web</span>
+          <span class="tag">iOS</span>
+          <span class="tag">Android</span>
+          <span class="tag">Live Programming</span>
+          <span class="tag">Community</span>
+        </div>
+      </div>
+      <div class="build-card fade-in">
+        <div class="icon">🧠</div>
+        <h3>The AI Intelligence Layer</h3>
+        <p>Gabby's proprietary training material, Laird's knowledge, videos, PDFs, recordings, and interviews go into a private Hamilton House knowledge base. A member can ask Laird or Gabby a specific question at any hour and get an answer based on their actual material — not a public model. Hamilton House controls its own intelligence.</p>
+        <div class="tag-list">
+          <span class="tag">Private Knowledge Base</span>
+          <span class="tag">Conversational AI</span>
+          <span class="tag">Always On</span>
+        </div>
+      </div>
+      <div class="build-card fade-in">
+        <div class="icon">📊</div>
+        <h3>Analytics That Actually Matter</h3>
+        <p>What are people struggling with? What are they asking about recovery? Which videos are members finishing — and where are they stopping? What content should you make next? Laird, Gabby, and your team can see what people are actually asking. That becomes the most valuable data you have.</p>
+        <div class="tag-list">
+          <span class="tag">Member Insights</span>
+          <span class="tag">Content Intelligence</span>
+          <span class="tag">Behavioral Data</span>
+        </div>
+      </div>
+      <div class="build-card fade-in">
+        <div class="icon">🤝</div>
+        <h3>The Expert Network</h3>
+        <p>Kenny is a perfect example. Someone discovers Kenny inside Hamilton House, experiences some of his training, and subscribes to more of his Bolt content. The same model works for every trainer, nutrition expert, physician, and recovery expert in Laird and Gabby's world — each with content, education, and their own AI experience inside Hamilton House.</p>
+        <div class="tag-list">
+          <span class="tag">Expert Profiles</span>
+          <span class="tag">Content &amp; Education</span>
+          <span class="tag">Partner AI</span>
+        </div>
+      </div>
+      <div class="build-card wide fade-in">
+        <div class="icon">🛒</div>
+        <h3>Commerce &amp; Multiple Revenue Streams</h3>
+        <p>The products Laird and Gabby actually use should be part of the experience. Supplements, equipment, apparel, recovery products, Bolt handles, Sweet Sweat, travel, resort bookings, and curated Hamilton House packages can all connect to the same platform — giving Hamilton House revenue streams beyond subscriptions alone.</p>
+        <div class="tag-list">
+          <span class="tag">Product Commerce</span>
+          <span class="tag">Resort Bookings</span>
+          <span class="tag">Subscriptions</span>
+          <span class="tag">Partner Revenue</span>
+          <span class="tag">Curated Packages</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- DELIVERABLES -->
+  <section id="deliverables">
+    <p class="section-label fade-in">Deliverables</p>
+    <h2 class="section-title fade-in">Everything included in the launch</h2>
+    <p class="section-desc fade-in">
+      A complete initial experience across web and mobile — ready to put in front of the team before anyone debates architecture in the abstract.
+    </p>
+    <div class="deliverables-grid">
+      <div class="deliverable-card fade-in">
+        <h4>Member Experience</h4>
+        <ul>
+          <li>Web, iOS &amp; Android apps</li>
+          <li>Content library (video, audio, articles)</li>
+          <li>Live programming &amp; scheduling</li>
+          <li>Member profiles &amp; progress tracking</li>
+          <li>Community &amp; discussion features</li>
+          <li>Push notifications</li>
+        </ul>
+      </div>
+      <div class="deliverable-card fade-in">
+        <h4>AI &amp; Intelligence</h4>
+        <ul>
+          <li>Private Hamilton House knowledge base</li>
+          <li>Laird &amp; Gabby AI personas</li>
+          <li>Expert partner AI experiences</li>
+          <li>Behavioral analytics dashboard</li>
+          <li>Content performance insights</li>
+          <li>Member question intelligence</li>
+        </ul>
+      </div>
+      <div class="deliverable-card fade-in">
+        <h4>Platform &amp; Growth</h4>
+        <ul>
+          <li>Commerce &amp; product integrations</li>
+          <li>Membership &amp; subscription management</li>
+          <li>Resort &amp; booking connections</li>
+          <li>Expert network infrastructure</li>
+          <li>App Store &amp; Play Store submission</li>
+          <li>Ongoing optimization &amp; new features</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <p class="section-label fade-in">Our Approach</p>
+    <h2 class="section-title fade-in">A different kind of partnership</h2>
+    <p class="section-desc fade-in">
+      Hamilton House should not spend $70,000 to get an app framework. We built fig1 to eliminate that model entirely.
+    </p>
+    <div class="approach-grid">
+      <div class="approach-card fade-in">
+        <div class="step-num">01</div>
+        <h3>Get the initial experience live</h3>
+        <p>Give us the content and we will get the initial Hamilton House experience up across web and mobile without the traditional build fee. It is an important showcase for us too. We earn the right to build more by delivering first.</p>
+      </div>
+      <div class="approach-card fade-in">
+        <div class="step-num">02</div>
+        <h3>Build the ongoing relationship</h3>
+        <p>Our business together is built around the things that actually require people and expertise: content production and editing, new functionality, integrations, analytics, optimization, commerce, and whatever custom work Hamilton House needs next.</p>
+      </div>
+      <div class="approach-card fade-in">
+        <div class="step-num">03</div>
+        <h3>Work alongside Moe</h3>
+        <p>If Moe is handling data infrastructure, analytics, or architecture, great — give him access to fig1 and we build around what he is doing. Our goal is to make his job easier, not compete with him. Fig1 and Moe could be much stronger together than either approach separately.</p>
+      </div>
+      <div class="approach-card fade-in">
+        <div class="step-num">04</div>
+        <h3>No lock-in</h3>
+        <p>We do not want Hamilton House locked into fig1. We want to earn the work by continuing to make the platform better. If pieces belong to Moe or another partner, they should own them. We are here to accelerate, not control.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- NEXT STEPS -->
+  <section id="next-steps">
+    <p class="section-label fade-in">Next Steps</p>
+    <h2 class="section-title fade-in">Simple from here</h2>
+    <p class="section-desc fade-in">
+      Rather than debating architecture in the abstract, let's put something real in front of the team.
+    </p>
+    <div class="steps-list">
+      <div class="step-item fade-in">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Get Moe into fig1</h4>
+          <p>We give him a login, walk him through the platform, and show him what we are already doing with Kenny and Bolt. If he helped build Peloton and is a data person, we think he will immediately understand where fig1 adds value.</p>
+        </div>
+      </div>
+      <div class="step-item fade-in">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Build a Hamilton House proof of concept</h4>
+          <p>Using existing content from Laird and Gabby, we put together a real Hamilton House experience inside fig1 — something the full team can actually see and react to, not a deck or a wireframe.</p>
+        </div>
+      </div>
+      <div class="step-item fade-in">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Align the team on ownership</h4>
+          <p>Once Moe, Heidi, Oliver, you, and the rest of the team can see what it actually looks like, the conversation about who owns what becomes much clearer. We decide together — and we move.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <p class="section-label fade-in">Let's Build It</p>
+    <h2 class="section-title fade-in">You have something really special here.</h2>
+    <p class="section-desc fade-in" style="margin: 0 auto 0;">
+      The physical Hamilton Houses, the relationship people have with Laird and Gabby, the trusted network around them, and the ability to stay connected to that world digitally — all of it reinforces itself. We would love to help you build it.
+    </p>
+    <div class="contact-links fade-in">
+      <a href="mailto:jim@fig1.ai" class="contact-link">
+        <span class="icon-sm">✉</span> jim@fig1.ai
+      </a>
+      <a href="mailto:sales@fig1.ai" class="contact-link">
+        <span class="icon-sm">✉</span> sales@fig1.ai
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <a href="mailto:sales@fig1.ai">fig1.ai</a> — Confidential.</p>
+  </footer>
+
+  <!-- SCROLL ANIMATIONS -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
